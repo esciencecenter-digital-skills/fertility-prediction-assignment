@@ -315,7 +315,7 @@ intentions</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>This is a classification problem</li>
 <li>Inputs are the background data of the persons (for example gender,
@@ -338,10 +338,10 @@ classification problem.</li>
 <h3 class="callout-title">Challenge: Reading in the data<a class="anchor" aria-label="anchor" href="#challenge-reading-in-the-data"></a>
 </h3>
 <div class="callout-content">
-<ol style="list-style-type: decimal"><li>Try to read in the data using pandas. The features are in
-‘LISS_example_input_data.csv.csv’, the outcome variable is stored in
-‘LISS_example_groundtruth_data.csv.csv’. Hint: You might run into an
-encoding error. See if you can fix it by googling for a solution.</li>
+<ol style="list-style-type: decimal"><li>Try to read in the data using pandas. The features are in ‘LISS
+2019.csv’, the outcome variable is stored in ‘outcome.csv’/ Hint: You
+might run into an encoding error. See if you can fix it by googling for
+a solution.</li>
 </ol></div>
 </div>
 </div>
@@ -352,7 +352,7 @@ encoding error. See if you can fix it by googling for a solution.</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="reading-in-the-features">Reading in the features:<a class="anchor" aria-label="anchor" href="#reading-in-the-features"></a></h3>
@@ -360,10 +360,10 @@ encoding error. See if you can fix it by googling for a solution.</li>
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This might result in UnicodeDecodeError: 'utf-8' codec can't decode byte 0x92 in position 50416: invalid start byte</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'LISS_example_input_data.csv.csv'</span>) </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'LISS 2019.csv'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># To tackle the encoding error:</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'LISS_example_input_data.csv.csv'</span>, encoding<span class="op">=</span><span class="st">'cp1252'</span>)</span></code></pre>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'LISS 2019.csv'</span>, encoding<span class="op">=</span><span class="st">'cp1252'</span>)</span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -371,7 +371,7 @@ encoding error. See if you can fix it by googling for a solution.</li>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>outcome <span class="op">=</span> pd.read_csv(<span class="st">'LISS_example_groundtruth_data.csv.csv'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>outcome <span class="op">=</span> pd.read_csv(<span class="st">'outcome.csv'</span>)</span></code></pre>
 </div>
 </div>
 </div>
@@ -403,7 +403,7 @@ encoding error. See if you can fix it by googling for a solution.</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Quickly explore the data:</p>
 <div class="codewrapper sourceCode" id="cb3">
@@ -414,30 +414,43 @@ encoding error. See if you can fix it by googling for a solution.</li>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>(9459, 29459)</code></pre>
+<pre class="output" tabindex="0"><code>(9970, 2355)</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data.head(<span class="dv">3</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data.head(<span class="dv">10</span>)</span></code></pre>
 </div>
-<pre class="outcome"><code>	nomem_encr	gebjaar	geslacht	nohouse_encr2007	nohouse_encr2008	nohouse_encr2009	nohouse_encr2010	nohouse_encr2011	nohouse_encr2012	nohouse_encr2013	...	cw19l600	cw19l601	cw19l602	cw19l603	cw19l604	cw19l605	cw19l606	cw19l607	cw19l608	cw19l609
-0	800000.0	1980	Female	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-1	800018.0	1985	Male	NaN	NaN	NaN	NaN	NaN	516668.0	516668.0	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-2	800021.0	1979	Female	NaN	NaN	NaN	NaN	</code></pre>
+<pre class="outcome"><code>	Unnamed: 0	nomem_encr	gebjaar	geslacht	nohouse_encr2019	wave2019	positie2019	leeftijd2019	lftdcat2019	lftdhhh2019	...	cw19l600	cw19l601	cw19l602	cw19l603	cw19l604	cw19l605	cw19l606	cw19l607	cw19l608	cw19l609
+0	1	800000.0	1980	Female	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+1	2	800018.0	1985	Male	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+2	3	800021.0	1979	Female	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+3	4	800033.0	1991	Male	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+4	5	800042.0	1975	Female	500277.0	201912.0	Wedded partner	44.0	35 - 44 years	47.0	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+5	6	800057.0	1975	Male	580532.0	201912.0	Unwedded partner	44.0	35 - 44 years	43.0	...	80.0	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+6	7	800076.0	1985	Female	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+7	8	800085.0	1977	Male	545773.0	201912.0	Household head	42.0	35 - 44 years	42.0	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+8	9	800091.0	1983	Male	515359.0	201912.0	Household head	36.0	35 - 44 years	36.0	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+9	10	800100.0	1990	Female	518099.0	201912.0	Wedded partner	29.0	25 - 34 years	34.0	...	NaN	NaN</code></pre>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>outcome.head(<span class="dv">4</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>outcome.head(<span class="dv">10</span>)</span></code></pre>
 </div>
-<pre class="outcome"><code>nomem_encr	new_child
+<pre class="outcome"><code>	nomem_encr	new_child
 0	800000.0	NaN
 1	800018.0	NaN
 2	800021.0	NaN
-3	800033.0	NaN</code></pre>
-<ol style="list-style-type: decimal"><li>There are 29458 features (excluding <code>nomem_encr</code> which is
+3	800033.0	NaN
+4	800042.0	NaN
+5	800057.0	0.0
+6	800076.0	NaN
+7	800085.0	NaN
+8	800091.0	NaN
+9	800100.0	1.0</code></pre>
+<ol style="list-style-type: decimal"><li>There are 2353 features (excluding <code>nomem_encr</code> which is
 just an identifier)</li>
-<li>There are 9459 samples</li>
+<li>There are 9970 samples</li>
 <li>Yes, looking at the first 10 rows they are ondered in the same
 way.</li>
 <li>The features are both categorical and numerical</li>
@@ -449,14 +462,14 @@ way.</li>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>count    902.000000
-mean       0.165188
-std        0.371557
-min        0.000000
-25%        0.000000
-50%        0.000000
-75%        0.000000
-max        1.000000
+<pre class="output" tabindex="0"><code>count    1292.000000
+mean        0.164087
+std         0.370498
+min         0.000000
+25%         0.000000
+50%         0.000000
+75%         0.000000
+max         1.000000
 Name: new_child, dtype: float64</code></pre>
 </div>
 <ol start="5" style="list-style-type: decimal"><li>The target variable is pretty unbalanced, only 16.4 % of the samples
@@ -469,8 +482,10 @@ outcome.</li>
 </div>
 </section><section id="taking-a-step-back"><h2 class="section-heading">3. Taking a step back<a class="anchor" aria-label="anchor" href="#taking-a-step-back"></a>
 </h2>
-<hr class="half-width"><p>Now that you have explored the data, it is good to take a step back
-and think about how you want to approach the problem.</p>
+<hr class="half-width"><p>Before you start enthusiastically typing all kinds of pandas and
+sklearn commands that you just learned. Now that you have explored the
+data, it is good to take a step back and think about how you want to
+approach the problem.</p>
 <div id="challenge-what-steps-to-take-next" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -495,7 +510,7 @@ things.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>These are the minimum steps that need to happen, in this order:</p>
 <ol style="list-style-type: decimal"><li>Select features</li>
@@ -537,7 +552,7 @@ dataset</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>There is no right or wrong here.</p>
 <p>A good set to start with would be to pick 5 variables from 2019. The
@@ -580,8 +595,8 @@ way is to just get rid of all rows that contain any missing value.</p>
 </h3>
 <div class="callout-content">
 <p>Remove all samples in both the features and target that have any
-missing value. In other words, if the target value is null or any of the
-features is null we drop the entire sample.</p>
+missing value. NB: so if the target value is null or any of the features
+is null we drop the entire sample.</p>
 <p>Hint: You need to find a clever way to delete the samples in both the
 target and feature datasets.</p>
 <p>How many samples do we have left?</p>
@@ -595,7 +610,7 @@ target and feature datasets.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -617,9 +632,8 @@ with missing value, then split the datasets again.</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>features.shape</span></code></pre>
 </div>
-<pre class="outcome"><code>(899, 5)
-</code></pre>
-<p>There are 899 samples left.</p>
+<pre class="outcome"><code>(1292, 5)</code></pre>
+<p>There are 1292 samples left.</p>
 </div>
 </div>
 </div>
@@ -665,7 +679,7 @@ encoding for categorical values.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <p>Select the numerical and categorical columns automatically:</p>
 <div class="codewrapper sourceCode" id="cb15">
@@ -720,7 +734,7 @@ encoding for categorical values.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -756,7 +770,7 @@ encoding for categorical values.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
+<div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -814,7 +828,7 @@ like this?</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution10" class="accordion-collapse collapse" aria-labelledby="headingSolution10" data-bs-parent="#accordionSolution10">
+<div id="collapseSolution10" class="accordion-collapse collapse" data-bs-parent="#accordionSolution10" aria-labelledby="headingSolution10">
 <div class="accordion-body">
 <p>You can best visualize the results using a confusion matrix:</p>
 <div class="codewrapper sourceCode" id="cb21">
@@ -857,7 +871,7 @@ target variable?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution11" class="accordion-collapse collapse" aria-labelledby="headingSolution11" data-bs-parent="#accordionSolution11">
+<div id="collapseSolution11" class="accordion-collapse collapse" data-bs-parent="#accordionSolution11" aria-labelledby="headingSolution11">
 <div class="accordion-body">
 <p>There are multiple ways to deal with this:</p>
 <ol style="list-style-type: decimal"><li>Find a model that can handle unbalanced data better</li>
@@ -889,7 +903,7 @@ strategy. Hint: Try googling first, but you can have a look at: <a href="https:/
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution12" class="accordion-collapse collapse" aria-labelledby="headingSolution12" data-bs-parent="#accordionSolution12">
+<div id="collapseSolution12" class="accordion-collapse collapse" data-bs-parent="#accordionSolution12" aria-labelledby="headingSolution12">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -925,7 +939,7 @@ strategy. Hint: Try googling first, but you can have a look at: <a href="https:/
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>(1050, 5)</code></pre>
+<pre class="output" tabindex="0"><code>(1506, 5)</code></pre>
 </div>
 </div>
 </div>
@@ -956,7 +970,7 @@ dataset<a class="anchor" aria-label="anchor" href="#challenge-train-the-model-on
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution13" class="accordion-collapse collapse" aria-labelledby="headingSolution13" data-bs-parent="#accordionSolution13">
+<div id="collapseSolution13" class="accordion-collapse collapse" data-bs-parent="#accordionSolution13" aria-labelledby="headingSolution13">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -996,7 +1010,7 @@ the dataset is unbalanced.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution14" class="accordion-collapse collapse" aria-labelledby="headingSolution14" data-bs-parent="#accordionSolution14">
+<div id="collapseSolution14" class="accordion-collapse collapse" data-bs-parent="#accordionSolution14" aria-labelledby="headingSolution14">
 <div class="accordion-body">
 <p>Good evaluation metrics would be macro precision, recall, and
 F1-score, because we want to get a feeling for how the model performs in
@@ -1009,7 +1023,7 @@ that can predict both true positives as well as true negatives.</p>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>p, r, f, _ <span class="op">=</span> precision_recall_fscore_support(y_test, y_pred, average<span class="op">=</span><span class="st">'macro'</span>)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Precision: </span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">, recall: </span><span class="sc">{</span>r<span class="sc">}</span><span class="ss">, F1-score: </span><span class="sc">{</span>f<span class="sc">}</span><span class="ss">'</span>)</span></code></pre>
 </div>
-<pre class="outcome"><code>Precision: 0.6381447056679423, recall: 0.7286806114239743, F1-score: 0.6430059227327888</code></pre>
+<pre class="outcome"><code>Precision: 0.6297419895408973, recall: 0.7251215721662405, F1-score: 0.6295138888888889</code></pre>
 </div>
 </div>
 </div>
@@ -1043,7 +1057,7 @@ seem most promising to try out in the next cycle.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution15" class="accordion-collapse collapse" aria-labelledby="headingSolution15" data-bs-parent="#accordionSolution15">
+<div id="collapseSolution15" class="accordion-collapse collapse" data-bs-parent="#accordionSolution15" aria-labelledby="headingSolution15">
 <div class="accordion-body">
 <p>There is no right or wrong, but here are some pointers:</p>
 <ul><li>Include more features. You can think of automated feature selection
