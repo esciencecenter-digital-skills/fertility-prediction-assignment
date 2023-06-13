@@ -179,7 +179,6 @@ Name: new_child, dtype: float64
 :::
 
 ## 3. Taking a step back
-Before you start enthusiastically typing all kinds of pandas and sklearn commands that you just learned.
 Now that you have explored the data, it is good to take a step back and think about how you want to approach the problem.
 
 ::: challenge
@@ -252,7 +251,7 @@ The quick and dirty way is to just get rid of all rows that contain any missing 
 
 ## Challenge: Remove missing values
 Remove all samples in both the features and target that have any missing value.
-NB: so if the target value is null or any of the features is null we drop the entire sample.
+In other words, if the target value is null or any of the features is null we drop the entire sample.
 
 Hint: You need to find a clever way to delete the samples in both the target and feature datasets.
 
