@@ -243,7 +243,7 @@
         
 <section id="aio-fertility-prediction"><p>Content from <a href="fertility-prediction.html">Fertility prediction using LISS data</a></p>
 <hr>
-<p> Last updated on 2023-05-31 | 
+<p> Last updated on 2023-06-13 | 
         
         <a href="https://github.com/esciencecenter-digital-skills/fertility-prediction-assignment/edit/main/episodes/fertility-prediction.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -337,7 +337,7 @@ intentions</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>This is a classification problem</li>
@@ -379,7 +379,7 @@ a solution.</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="reading-in-the-features">Reading in the features:<a class="anchor" aria-label="anchor" href="#reading-in-the-features"></a>
@@ -434,7 +434,7 @@ a solution.</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Quickly explore the data:</p>
 <div class="codewrapper sourceCode" id="cb3">
@@ -518,10 +518,8 @@ outcome.</li>
 </section><section id="taking-a-step-back"><h2 class="section-heading">3. Taking a step back<a class="anchor" aria-label="anchor" href="#taking-a-step-back"></a>
 </h2>
 <hr class="half-width">
-<p>Before you start enthusiastically typing all kinds of pandas and
-sklearn commands that you just learned. Now that you have explored the
-data, it is good to take a step back and think about how you want to
-approach the problem.</p>
+<p>Now that you have explored the data, it is good to take a step back
+and think about how you want to approach the problem.</p>
 <div id="challenge-what-steps-to-take-next" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -546,7 +544,7 @@ things.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>These are the minimum steps that need to happen, in this order:</p>
 <ol style="list-style-type: decimal">
@@ -593,7 +591,7 @@ dataset</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>There is no right or wrong here.</p>
 <p>A good set to start with would be to pick 5 variables from 2019. The
@@ -640,8 +638,8 @@ way is to just get rid of all rows that contain any missing value.</p>
 </h3>
 <div class="callout-content">
 <p>Remove all samples in both the features and target that have any
-missing value. NB: so if the target value is null or any of the features
-is null we drop the entire sample.</p>
+missing value. In other words, if the target value is null or any of the
+features is null we drop the entire sample.</p>
 <p>Hint: You need to find a clever way to delete the samples in both the
 target and feature datasets.</p>
 <p>How many samples do we have left?</p>
@@ -655,7 +653,7 @@ target and feature datasets.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -725,7 +723,7 @@ encoding for categorical values.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <p>Select the numerical and categorical columns automatically:</p>
 <div class="codewrapper sourceCode" id="cb15">
@@ -781,7 +779,7 @@ encoding for categorical values.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -818,7 +816,7 @@ encoding for categorical values.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
+<div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -879,7 +877,7 @@ like this?</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution10" class="accordion-collapse collapse" aria-labelledby="headingSolution10" data-bs-parent="#accordionSolution10">
+<div id="collapseSolution10" class="accordion-collapse collapse" data-bs-parent="#accordionSolution10" aria-labelledby="headingSolution10">
 <div class="accordion-body">
 <p>You can best visualize the results using a confusion matrix:</p>
 <div class="codewrapper sourceCode" id="cb21">
@@ -923,7 +921,7 @@ target variable?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution11" class="accordion-collapse collapse" aria-labelledby="headingSolution11" data-bs-parent="#accordionSolution11">
+<div id="collapseSolution11" class="accordion-collapse collapse" data-bs-parent="#accordionSolution11" aria-labelledby="headingSolution11">
 <div class="accordion-body">
 <p>There are multiple ways to deal with this:</p>
 <ol style="list-style-type: decimal">
@@ -957,7 +955,7 @@ strategy. Hint: Try googling first, but you can have a look at: <a href="https:/
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution12" class="accordion-collapse collapse" aria-labelledby="headingSolution12" data-bs-parent="#accordionSolution12">
+<div id="collapseSolution12" class="accordion-collapse collapse" data-bs-parent="#accordionSolution12" aria-labelledby="headingSolution12">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1027,7 +1025,7 @@ dataset<a class="anchor" aria-label="anchor" href="#challenge-train-the-model-on
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution13" class="accordion-collapse collapse" aria-labelledby="headingSolution13" data-bs-parent="#accordionSolution13">
+<div id="collapseSolution13" class="accordion-collapse collapse" data-bs-parent="#accordionSolution13" aria-labelledby="headingSolution13">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1068,7 +1066,7 @@ the dataset is unbalanced.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution14" class="accordion-collapse collapse" aria-labelledby="headingSolution14" data-bs-parent="#accordionSolution14">
+<div id="collapseSolution14" class="accordion-collapse collapse" data-bs-parent="#accordionSolution14" aria-labelledby="headingSolution14">
 <div class="accordion-body">
 <p>Good evaluation metrics would be macro precision, recall, and
 F1-score, because we want to get a feeling for how the model performs in
@@ -1116,7 +1114,7 @@ seem most promising to try out in the next cycle.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution15" class="accordion-collapse collapse" aria-labelledby="headingSolution15" data-bs-parent="#accordionSolution15">
+<div id="collapseSolution15" class="accordion-collapse collapse" data-bs-parent="#accordionSolution15" aria-labelledby="headingSolution15">
 <div class="accordion-body">
 <p>There is no right or wrong, but here are some pointers:</p>
 <ul>
@@ -1190,7 +1188,7 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://esciencecenter-digital-skills.github.io/fertility-prediction-assignment/aio.html",
   "identifier": "https://esciencecenter-digital-skills.github.io/fertility-prediction-assignment/aio.html",
-  "dateCreated": "2023-05-31",
+  "dateCreated": "2023-06-13",
   "dateModified": "2023-06-13",
   "datePublished": "2023-06-13"
 }
