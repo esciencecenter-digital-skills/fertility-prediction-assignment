@@ -67,7 +67,7 @@ Features that can be used for the first simple models: gender, age, education le
 
 ## Challenge: Reading in the data
 
-1. Try to read in the data using pandas. The features are in 'LISS_example_input_data.csv.csv', the outcome variable is stored in 'LISS_example_groundtruth_data.csv.csv'.
+1. Try to read in the data using pandas. The features are in 'LISS 2019.csv', the outcome variable is stored in 'outcome.csv'/
 Hint: You might run into an encoding error. See if you can fix it by googling for a solution.
 
 :::: solution 
@@ -76,14 +76,14 @@ Hint: You might run into an encoding error. See if you can fix it by googling fo
 ### Reading in the features:
 ```python
 # This might result in UnicodeDecodeError: 'utf-8' codec can't decode byte 0x92 in position 50416: invalid start byte
-data = pd.read_csv('LISS_example_input_data.csv.csv') 
+data = pd.read_csv('LISS 2019.csv')
 
 # To tackle the encoding error:
-data = pd.read_csv('LISS_example_input_data.csv.csv', encoding='cp1252')
+data = pd.read_csv('LISS 2019.csv', encoding='cp1252')
 ```
 ### Reading the outcomes:
 ```python
-outcome = pd.read_csv('LISS_example_groundtruth_data.csv.csv')
+outcome = pd.read_csv('outcome.csv')
 ```
 
 ::::
@@ -114,33 +114,46 @@ Quickly explore the data:
 data.shape
 ```
 ```output
-(9459, 29459)
+(9970, 2355)
 ```
 
 ```python
-data.head(3)
+data.head(10)
 ```
 
 ```outcome
-	nomem_encr	gebjaar	geslacht	nohouse_encr2007	nohouse_encr2008	nohouse_encr2009	nohouse_encr2010	nohouse_encr2011	nohouse_encr2012	nohouse_encr2013	...	cw19l600	cw19l601	cw19l602	cw19l603	cw19l604	cw19l605	cw19l606	cw19l607	cw19l608	cw19l609
-0	800000.0	1980	Female	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-1	800018.0	1985	Male	NaN	NaN	NaN	NaN	NaN	516668.0	516668.0	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-2	800021.0	1979	Female	NaN	NaN	NaN	NaN	
+	Unnamed: 0	nomem_encr	gebjaar	geslacht	nohouse_encr2019	wave2019	positie2019	leeftijd2019	lftdcat2019	lftdhhh2019	...	cw19l600	cw19l601	cw19l602	cw19l603	cw19l604	cw19l605	cw19l606	cw19l607	cw19l608	cw19l609
+0	1	800000.0	1980	Female	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+1	2	800018.0	1985	Male	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+2	3	800021.0	1979	Female	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+3	4	800033.0	1991	Male	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+4	5	800042.0	1975	Female	500277.0	201912.0	Wedded partner	44.0	35 - 44 years	47.0	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+5	6	800057.0	1975	Male	580532.0	201912.0	Unwedded partner	44.0	35 - 44 years	43.0	...	80.0	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+6	7	800076.0	1985	Female	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+7	8	800085.0	1977	Male	545773.0	201912.0	Household head	42.0	35 - 44 years	42.0	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+8	9	800091.0	1983	Male	515359.0	201912.0	Household head	36.0	35 - 44 years	36.0	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+9	10	800100.0	1990	Female	518099.0	201912.0	Wedded partner	29.0	25 - 34 years	34.0	...	NaN	NaN
 ```
 
 ```python
-outcome.head(4)
+outcome.head(10)
 ```
 ```outcome
-nomem_encr	new_child
+	nomem_encr	new_child
 0	800000.0	NaN
 1	800018.0	NaN
 2	800021.0	NaN
 3	800033.0	NaN
+4	800042.0	NaN
+5	800057.0	0.0
+6	800076.0	NaN
+7	800085.0	NaN
+8	800091.0	NaN
+9	800100.0	1.0
 ```
 
-1. There are 29458 features (excluding `nomem_encr` which is just an identifier)
-2. There are 9459 samples
+1. There are 2353 features (excluding `nomem_encr` which is just an identifier)
+2. There are 9970 samples
 3. Yes, looking at the first 10 rows they are ondered in the same way.
 4. The features are both categorical and numerical
 
@@ -149,14 +162,14 @@ outcome['new_child'].describe()
 ```
 
 ```output
-count    902.000000
-mean       0.165188
-std        0.371557
-min        0.000000
-25%        0.000000
-50%        0.000000
-75%        0.000000
-max        1.000000
+count    1292.000000
+mean        0.164087
+std         0.370498
+min         0.000000
+25%         0.000000
+50%         0.000000
+75%         0.000000
+max         1.000000
 Name: new_child, dtype: float64
 ```
 5. The target variable is pretty unbalanced, only 16.4 % of the samples are in the `1` class
@@ -166,6 +179,7 @@ Name: new_child, dtype: float64
 :::
 
 ## 3. Taking a step back
+Before you start enthusiastically typing all kinds of pandas and sklearn commands that you just learned.
 Now that you have explored the data, it is good to take a step back and think about how you want to approach the problem.
 
 ::: challenge
@@ -238,7 +252,7 @@ The quick and dirty way is to just get rid of all rows that contain any missing 
 
 ## Challenge: Remove missing values
 Remove all samples in both the features and target that have any missing value.
-In other words, if the target value is null or any of the features is null we drop the entire sample.
+NB: so if the target value is null or any of the features is null we drop the entire sample.
 
 Hint: You need to find a clever way to delete the samples in both the target and feature datasets.
 
@@ -266,11 +280,10 @@ then split the datasets again.
 features.shape
 ```
 ```outcome
-(899, 5)
-
+(1292, 5)
 ```
 
-There are 899 samples left.
+There are 1292 samples left.
 
 ::::
 :::
@@ -464,7 +477,7 @@ Check that there is now indeed more in the training set:
 X_balanced.shape
 ```
 ```output
-(1050, 5)
+(1506, 5)
 ```
 ::::
 :::
@@ -515,7 +528,7 @@ p, r, f, _ = precision_recall_fscore_support(y_test, y_pred, average='macro')
 print(f'Precision: {p}, recall: {r}, F1-score: {f}')
 ```
 ```outcome
-Precision: 0.6381447056679423, recall: 0.7286806114239743, F1-score: 0.6430059227327888
+Precision: 0.6297419895408973, recall: 0.7251215721662405, F1-score: 0.6295138888888889
 ```
 
 ::::
