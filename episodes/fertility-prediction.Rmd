@@ -514,23 +514,27 @@ When proceeding it would be better to use evaluation metrics for this.
 ## Challenge: Evaluation metrics
 Evaluate the model using the appropriate evaluation metrics.
 Hint: the dataset is unbalanced.
-
 :::: solution
 
 ## Solution
-Good evaluation metrics would be macro precision, recall, and F1-score, 
-because we want to get a feeling for how the model performs in both classes of the target variable.
-In other words, we value a model that can predict both true positives as well as true negatives.
+Good evaluation metrics would be precision, recall, and F1-score for the positive class (getting a child in the next 3 years)
+This of course also makes sense, sense these are the metrics that are used in the benchmark.
+
+Precision gives us a measure for how many of the households labeled as 'fertile' was that a correct prediction. 
+Recall gives us a measure for how many of the households that are actually 'fertile' how many we correctly 'detect' as being fertile.
+
+F1-score is the harmonic mean of the two.
 
 ```python
 y_pred = model.predict(X_test)
-p, r, f, _ = precision_recall_fscore_support(y_test, y_pred, average='macro')
+p, r, f, _ = precision_recall_fscore_support(y_test, y_pred, average='binary')
 print(f'Precision: {p}, recall: {r}, F1-score: {f}')
 ```
 ```outcome
-Precision: 0.6297419895408973, recall: 0.7251215721662405, F1-score: 0.6295138888888889
+Precision: 0.23387096774193547, recall: 0.6590909090909091, F1-score: 0.3452380952380952
 ```
 
+Challenge: Test your understanding of precision and recall by computing the scores by hand! You can use the numbers shown in the confusion matrix for this.
 ::::
 :::
 
@@ -538,7 +542,7 @@ Precision: 0.6297419895408973, recall: 0.7251215721662405, F1-score: 0.629513888
 ## 10. Adapt, train, evaluate. Adapt, train, evaluate.
 Good job! You have now set up a simple, yet effective machine learning pipeline on a real-world problem.
 Notice that you already went through the machine learning cycle twice.
-From this point onwards it is a matter of adapting your approach, train the model, evaluate the results. Again, and again, and again.
+From this point onward it is a matter of adapting your approach, train the model, evaluate the results. Again, and again, and again.
 
 Of course there is still a lot of room for improvement. 
 Every time you evaluate the results, try to come up with a shortlist of things that seem most promising to try out in the next cycle.
