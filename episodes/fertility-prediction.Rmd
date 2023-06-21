@@ -76,14 +76,14 @@ Hint: You might run into an encoding error. See if you can fix it by googling fo
 ### Reading in the features:
 ```python
 # This might result in UnicodeDecodeError: 'utf-8' codec can't decode byte 0x92 in position 50416: invalid start byte
-data = pd.read_csv('LISS 2019.csv')
+data = pd.read_csv('LISS_example_input_data.csv')
 
 # To tackle the encoding error:
-data = pd.read_csv('LISS 2019.csv', encoding='cp1252')
+data = pd.read_csv('LISS_example_input_data.csv', encoding='cp1252')
 ```
 ### Reading the outcomes:
 ```python
-outcome = pd.read_csv('outcome.csv')
+outcome = pd.read_csv('LISS_example_groundtruth_data.csv')
 ```
 
 ::::
