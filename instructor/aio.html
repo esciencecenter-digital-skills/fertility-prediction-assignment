@@ -389,11 +389,11 @@ a solution.</li>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This might result in UnicodeDecodeError: 'utf-8' codec can't decode byte 0x92 in position 50416: invalid start byte</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'LISS_example_input_data.csv'</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># To tackle the encoding error:</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'LISS_example_input_data.csv'</span>, encoding<span class="op">=</span><span class="st">'cp1252'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># This might result in UnicodeDecodeError: 'utf-8' codec can't decode byte 0x92 in position 50416: invalid start byte</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'LISS_example_input_data.csv'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co"># To tackle the encoding error:</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'LISS_example_input_data.csv'</span>, encoding<span class="op">=</span><span class="st">'cp1252'</span>)</span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -402,7 +402,7 @@ a solution.</li>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>outcome <span class="op">=</span> pd.read_csv(<span class="st">'LISS_example_groundtruth_data.csv'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>outcome <span class="op">=</span> pd.read_csv(<span class="st">'LISS_example_groundtruth_data.csv'</span>)</span></code></pre>
 </div>
 </div>
 </div>
@@ -440,7 +440,7 @@ a solution.</li>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data.shape</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>data.shape</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -450,7 +450,7 @@ a solution.</li>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data.head(<span class="dv">10</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>data.head(<span class="dv">10</span>)</span></code></pre>
 </div>
 <pre class="outcome"><code>	Unnamed: 0	nomem_encr	gebjaar	geslacht	nohouse_encr2019	wave2019	positie2019	leeftijd2019	lftdcat2019	lftdhhh2019	...	cw19l600	cw19l601	cw19l602	cw19l603	cw19l604	cw19l605	cw19l606	cw19l607	cw19l608	cw19l609
 0	1	800000.0	1980	Female	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
@@ -466,7 +466,7 @@ a solution.</li>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>outcome.head(<span class="dv">10</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>outcome.head(<span class="dv">10</span>)</span></code></pre>
 </div>
 <pre class="outcome"><code>	nomem_encr	new_child
 0	800000.0	NaN
@@ -490,7 +490,7 @@ way.</li>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>outcome[<span class="st">'new_child'</span>].describe()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>outcome[<span class="st">'new_child'</span>].describe()</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -614,8 +614,8 @@ research!</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>selected_columns <span class="op">=</span> [<span class="st">'burgstat2019'</span>, <span class="st">'leeftijd2019'</span>, <span class="st">'woonvorm2019'</span>, <span class="st">'oplmet2019'</span>, <span class="st">'aantalki2019'</span>]</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> data[selected_columns]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>selected_columns <span class="op">=</span> [<span class="st">'burgstat2019'</span>, <span class="st">'leeftijd2019'</span>, <span class="st">'woonvorm2019'</span>, <span class="st">'oplmet2019'</span>, <span class="st">'aantalki2019'</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>features <span class="op">=</span> data[selected_columns]</span></code></pre>
 </div>
 </div>
 </div>
@@ -654,22 +654,22 @@ target and feature datasets.</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The null values in the target variable</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>y_isna <span class="op">=</span> outcome[<span class="st">'new_child'</span>].isnull()</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The rows where any of the features is NaN</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>X_isna <span class="op">=</span> features.isnull().<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># For both datasets drop rows where any of the features is NaN OR the outcome is NaN</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> features.drop(features[y_isna <span class="op">|</span> X_isna].index)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>outcome <span class="op">=</span> outcome.drop(outcome[y_isna <span class="op">|</span> X_isna].index)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co"># The null values in the target variable</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>y_isna <span class="op">=</span> outcome[<span class="st">'new_child'</span>].isnull()</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="co"># The rows where any of the features is NaN</span></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>X_isna <span class="op">=</span> features.isnull().<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="co"># For both datasets drop rows where any of the features is NaN OR the outcome is NaN</span></span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>features <span class="op">=</span> features.drop(features[y_isna <span class="op">|</span> X_isna].index)</span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a>outcome <span class="op">=</span> outcome.drop(outcome[y_isna <span class="op">|</span> X_isna].index)</span></code></pre>
 </div>
 <p>You could also first <code>join</code> the two datasets, drop any row
 with missing value, then split the datasets again.</p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>features.shape</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>features.shape</span></code></pre>
 </div>
 <pre class="outcome"><code>(1292, 5)</code></pre>
 <p>There are 1292 samples left.</p>
@@ -677,13 +677,12 @@ with missing value, then split the datasets again.</p>
 </div>
 </div>
 </div>
-<div id="callout1" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout1"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title">Callout</h3>
 <div class="callout-content">
 <p>Remember that the benchmark dataset that is used to test your
 submissions will also have missing values. The quick and dirty solution
@@ -723,27 +722,27 @@ encoding for categorical values.</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> make_column_selector <span class="im">as</span> selector</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>numerical_columns_selector <span class="op">=</span> selector(dtype_exclude<span class="op">=</span><span class="bu">object</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>categorical_columns_selector <span class="op">=</span> selector(dtype_include<span class="op">=</span><span class="bu">object</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>numerical_columns <span class="op">=</span> numerical_columns_selector(features)</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>categorical_columns <span class="op">=</span> categorical_columns_selector(features)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> make_column_selector <span class="im">as</span> selector</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>numerical_columns_selector <span class="op">=</span> selector(dtype_exclude<span class="op">=</span><span class="bu">object</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>categorical_columns_selector <span class="op">=</span> selector(dtype_include<span class="op">=</span><span class="bu">object</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>numerical_columns <span class="op">=</span> numerical_columns_selector(features)</span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>categorical_columns <span class="op">=</span> categorical_columns_selector(features)</span></code></pre>
 </div>
 <p>Define a preprocessor:</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder, StandardScaler</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>categorical_preprocessor <span class="op">=</span> OneHotEncoder(handle_unknown<span class="op">=</span><span class="st">"ignore"</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>numerical_preprocessor <span class="op">=</span> StandardScaler()</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>preprocessor <span class="op">=</span> ColumnTransformer([</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'one-hot-encoder'</span>, categorical_preprocessor, categorical_columns),</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'standard_scaler'</span>, numerical_preprocessor, numerical_columns)])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder, StandardScaler</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>categorical_preprocessor <span class="op">=</span> OneHotEncoder(handle_unknown<span class="op">=</span><span class="st">"ignore"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>numerical_preprocessor <span class="op">=</span> StandardScaler()</span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a>preprocessor <span class="op">=</span> ColumnTransformer([</span>
+<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a>    (<span class="st">'one-hot-encoder'</span>, categorical_preprocessor, categorical_columns),</span>
+<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a>    (<span class="st">'standard_scaler'</span>, numerical_preprocessor, numerical_columns)])</span></code></pre>
 </div>
 </div>
 </div>
@@ -776,9 +775,9 @@ encoding for categorical values.</p>
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    features, outcome[<span class="st">'new_child'</span>], test_size<span class="op">=</span><span class="fl">0.30</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>    features, outcome[<span class="st">'new_child'</span>], test_size<span class="op">=</span><span class="fl">0.30</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code></pre>
 </div>
 </div>
 </div>
@@ -811,11 +810,11 @@ encoding for categorical values.</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> make_pipeline(preprocessor, LogisticRegression(max_iter<span class="op">=</span><span class="dv">500</span>))</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>model</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>model <span class="op">=</span> make_pipeline(preprocessor, LogisticRegression(max_iter<span class="op">=</span><span class="dv">500</span>))</span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a>model</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -834,7 +833,7 @@ encoding for categorical values.</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> model.fit(X_train, y_train)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>_ <span class="op">=</span> model.fit(X_train, y_train)</span></code></pre>
 </div>
 </div>
 </div>
@@ -871,9 +870,9 @@ like this?</li>
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> ConfusionMatrixDisplay</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> ConfusionMatrixDisplay.from_estimator(model, X_test, y_test)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> ConfusionMatrixDisplay</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>_ <span class="op">=</span> ConfusionMatrixDisplay.from_estimator(model, X_test, y_test)</span></code></pre>
 </div>
 <figure><img src="../fig/confusion-matrix-1.png" class="figure mx-auto d-block"></figure><p>As you can see the model almost always predicts the majority class (0
 - no kids). Because 84% of the data falls within this class, this is
@@ -944,33 +943,33 @@ strategy. Hint: Try googling first, but you can have a look at: <a href="https:/
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.utils <span class="im">import</span> resample</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create oversampled training data set for minority class</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>X_oversampled, y_oversampled <span class="op">=</span> resample(X_train[y_train <span class="op">==</span> <span class="dv">1</span>],</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>                                        y_train[y_train <span class="op">==</span> <span class="dv">1</span>],</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>                                        replace<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>                                        n_samples<span class="op">=</span>X_train[y_train <span class="op">==</span> <span class="dv">0</span>].shape[<span class="dv">0</span>],</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>                                        random_state<span class="op">=</span><span class="dv">123</span>)</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Append the oversampled minority class to training data and related labels</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>X_balanced <span class="op">=</span> pd.concat((X_train[y_train <span class="op">==</span> <span class="dv">0</span>], X_oversampled))</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>y_balanced <span class="op">=</span> pd.concat((y_train[y_train <span class="op">==</span> <span class="dv">0</span>], y_oversampled))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="im">from</span> sklearn.utils <span class="im">import</span> resample</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="co"># Create oversampled training data set for minority class</span></span>
+<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a>X_oversampled, y_oversampled <span class="op">=</span> resample(X_train[y_train <span class="op">==</span> <span class="dv">1</span>],</span>
+<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a>                                        y_train[y_train <span class="op">==</span> <span class="dv">1</span>],</span>
+<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a>                                        replace<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a>                                        n_samples<span class="op">=</span>X_train[y_train <span class="op">==</span> <span class="dv">0</span>].shape[<span class="dv">0</span>],</span>
+<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a>                                        random_state<span class="op">=</span><span class="dv">123</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb22-11"><a href="#cb22-11" tabindex="-1"></a><span class="co"># Append the oversampled minority class to training data and related labels</span></span>
+<span id="cb22-12"><a href="#cb22-12" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb22-13"><a href="#cb22-13" tabindex="-1"></a>X_balanced <span class="op">=</span> pd.concat((X_train[y_train <span class="op">==</span> <span class="dv">0</span>], X_oversampled))</span>
+<span id="cb22-14"><a href="#cb22-14" tabindex="-1"></a>y_balanced <span class="op">=</span> pd.concat((y_train[y_train <span class="op">==</span> <span class="dv">0</span>], y_oversampled))</span></code></pre>
 </div>
 <p>Check that the data is indeed balanced:</p>
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>y_balanced.mean()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>y_balanced.mean()</span></code></pre>
 </div>
 <pre class="outcome"><code><span><span class="fl">0.5</span></span></code></pre>
 <p>Check that there is now indeed more in the training set:</p>
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>X_balanced.shape</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>X_balanced.shape</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1012,8 +1011,8 @@ dataset<a class="anchor" aria-label="anchor" href="#challenge-train-the-model-on
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> model.fit(X_balanced, y_balanced)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> ConfusionMatrixDisplay.from_estimator(model, X_test, y_test)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>_ <span class="op">=</span> model.fit(X_balanced, y_balanced)</span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>_ <span class="op">=</span> ConfusionMatrixDisplay.from_estimator(model, X_test, y_test)</span></code></pre>
 </div>
 <figure><img src="../fig/confusion-matrix-2.png" class="figure mx-auto d-block"></figure><p>This already looks much better! The predictions are more balanced
 over the two classes, and are also quite often correct. So balancing the
@@ -1053,9 +1052,9 @@ correctly ‘detect’ as being fertile.</p>
 <div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>p, r, f, _ <span class="op">=</span> precision_recall_fscore_support(y_test, y_pred, average<span class="op">=</span><span class="st">'binary'</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Precision: </span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">, recall: </span><span class="sc">{</span>r<span class="sc">}</span><span class="ss">, F1-score: </span><span class="sc">{</span>f<span class="sc">}</span><span class="ss">'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)</span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>p, r, f, _ <span class="op">=</span> precision_recall_fscore_support(y_test, y_pred, average<span class="op">=</span><span class="st">'binary'</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Precision: </span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">, recall: </span><span class="sc">{</span>r<span class="sc">}</span><span class="ss">, F1-score: </span><span class="sc">{</span>f<span class="sc">}</span><span class="ss">'</span>)</span></code></pre>
 </div>
 <pre class="outcome"><code>Precision: 0.23387096774193547, recall: 0.6590909090909091, F1-score: 0.3452380952380952</code></pre>
 <p>Challenge: Test your understanding of precision and recall by
@@ -1168,8 +1167,8 @@ any links that you are not going to use.
   "url": "https://esciencecenter-digital-skills.github.io/fertility-prediction-assignment/instructor/aio.html",
   "identifier": "https://esciencecenter-digital-skills.github.io/fertility-prediction-assignment/instructor/aio.html",
   "dateCreated": "2023-06-21",
-  "dateModified": "2024-02-27",
-  "datePublished": "2024-02-27"
+  "dateModified": "2024-03-05",
+  "datePublished": "2024-03-05"
 }
 
   </script><script>
