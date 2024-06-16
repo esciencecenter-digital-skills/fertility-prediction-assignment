@@ -514,8 +514,8 @@ When proceeding it would be better to use evaluation metrics for this.
 ## Challenge: Evaluation metrics
 Evaluate the model using the appropriate evaluation metrics.
 Hint: the dataset is unbalanced.
-:::: solution
 
+:::: solution
 ## Solution
 Good evaluation metrics would be precision, recall, and F1-score for the positive class (getting a child in the next 3 years)
 This of course also makes sense, sense these are the metrics that are used in the benchmark.
