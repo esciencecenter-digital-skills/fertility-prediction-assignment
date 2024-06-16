@@ -34,7 +34,7 @@ You will have to find a balance between guidance and self-exploration yourself.
 The goal is to predict who will have a child in the next 3 years, 
 based on all the data from previous years. 
 
-To train your models, you will have all the background data (features) up to 2019 and the data about the outcome - having a child in 2020-2022 (for about half of cases). So, the outcome is binary (0 - no new children in 2020-2022, 1- at least one new child in 2020-2022).
+To train your models, you will have all the background data (features) up to 2020 and the data about the outcome - having a child in 2021-2023. So, the outcome is binary (0 - no new children in 2021-2023, 1- at least one new child in 2021-2023).
 The performance of the models will then be tested on the remaining cases.
 
 You are encouraged to use different strategies to predict the outcome – e.g. theory-driven (to select a relatively small set of variables that were found significant in previous studies) and data-driven (e.g. features selected based on regularisation).
@@ -76,14 +76,14 @@ Hint: You might run into an encoding error. See if you can fix it by googling fo
 ### Reading in the features:
 ```python
 # This might result in UnicodeDecodeError: 'utf-8' codec can't decode byte 0x92 in position 50416: invalid start byte
-data = pd.read_csv('LISS_example_input_data.csv')
+data = pd.read_csv('data/PreFer_train_data_only_2020_vars.csv')
 
 # To tackle the encoding error:
-data = pd.read_csv('LISS_example_input_data.csv', encoding='cp1252')
+data = pd.read_csv('data/PreFer_train_data_only_2020_vars.csv', encoding='cp1252')
 ```
 ### Reading the outcomes:
 ```python
-outcome = pd.read_csv('LISS_example_groundtruth_data.csv')
+outcome = pd.read_csv('data/PreFer_train_outcome.csv')
 ```
 
 ::::
@@ -114,7 +114,7 @@ Quickly explore the data:
 data.shape
 ```
 ```output
-(9970, 2355)
+(6418, 2290)
 ```
 
 ```python
@@ -122,17 +122,17 @@ data.head(10)
 ```
 
 ```outcome
-	Unnamed: 0	nomem_encr	gebjaar	geslacht	nohouse_encr2019	wave2019	positie2019	leeftijd2019	lftdcat2019	lftdhhh2019	...	cw19l600	cw19l601	cw19l602	cw19l603	cw19l604	cw19l605	cw19l606	cw19l607	cw19l608	cw19l609
-0	1	800000.0	1980	Female	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-1	2	800018.0	1985	Male	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-2	3	800021.0	1979	Female	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-3	4	800033.0	1991	Male	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-4	5	800042.0	1975	Female	500277.0	201912.0	Wedded partner	44.0	35 - 44 years	47.0	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-5	6	800057.0	1975	Male	580532.0	201912.0	Unwedded partner	44.0	35 - 44 years	43.0	...	80.0	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-6	7	800076.0	1985	Female	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-7	8	800085.0	1977	Male	545773.0	201912.0	Household head	42.0	35 - 44 years	42.0	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-8	9	800091.0	1983	Male	515359.0	201912.0	Household head	36.0	35 - 44 years	36.0	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-9	10	800100.0	1990	Female	518099.0	201912.0	Wedded partner	29.0	25 - 34 years	34.0	...	NaN	NaN
+	nomem_encr	cf20m_m	cf20m001	cf20m002	cf20m003	cf20m004	cf20m005	cf20m007	cf20m008	cf20m009	...	nettohh_f_2020	nettoink_2020	nettoink_f_2020	oplcat_2020	oplmet_2020	oplzon_2020	partner_2020	sted_2020	woning_2020	woonvorm_2020
+0	712619	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+1	706448	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	3263.0	1251.0	1251.0	3.0	3.0	3.0	1.0	1.0	1.0	3.0
+2	729145	202009.0	2.0	2009.0	1.0	45.0	1939.0	1.0	NaN	1945.0	...	8500.0	4250.0	4250.0	6.0	6.0	6.0	1.0	1.0	1.0	3.0
+3	729424	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+4	715619	202009.0	16.0	NaN	1.0	30.0	1964.0	1.0	NaN	1954.0	...	NaN	NaN	NaN	4.0	4.0	5.0	1.0	3.0	1.0	2.0
+5	715353	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+6	704754	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+7	726292	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+8	716711	202009.0	16.0	NaN	2.0	31.0	1950.0	1.0	NaN	1949.0	...	4166.0	2166.0	2166.0	5.0	5.0	5.0	1.0	2.0	1.0	2.0
+9	729919	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN
 ```
 
 ```python
@@ -140,21 +140,21 @@ outcome.head(10)
 ```
 ```outcome
 	nomem_encr	new_child
-0	800000.0	NaN
-1	800018.0	NaN
-2	800021.0	NaN
-3	800033.0	NaN
-4	800042.0	NaN
-5	800057.0	0.0
-6	800076.0	NaN
-7	800085.0	NaN
-8	800091.0	NaN
-9	800100.0	1.0
+0	712619	NaN
+1	706448	NaN
+2	729145	NaN
+3	729424	NaN
+4	715619	0.0
+5	715353	NaN
+6	704754	NaN
+7	726292	NaN
+8	716711	1.0
+9	729919	NaN
 ```
 
-1. There are 2353 features (excluding `nomem_encr` which is just an identifier)
-2. There are 9970 samples
-3. Yes, looking at the first 10 rows they are ondered in the same way.
+1. There are 2289 features (excluding `nomem_encr` which is just an identifier)
+2. There are 6418 samples
+3. The outcome and features seem to be ordered in the same way
 4. The features are both categorical and numerical
 
 ```python
@@ -162,18 +162,18 @@ outcome['new_child'].describe()
 ```
 
 ```output
-count    1292.000000
-mean        0.164087
-std         0.370498
-min         0.000000
-25%         0.000000
-50%         0.000000
-75%         0.000000
-max         1.000000
+count    987.000000
+mean       0.214792
+std        0.410886
+min        0.000000
+25%        0.000000
+50%        0.000000
+75%        0.000000
+max        1.000000
 Name: new_child, dtype: float64
 ```
-5. The target variable is pretty unbalanced, only 16.4 % of the samples are in the `1` class
-6. There are a lot of missing data in both the features and the outcome.
+5. The target variable is pretty unbalanced, only 21.5 % of the samples are in the `1` class
+6. There are is a lot of missing data in the features as well is in the output.
 
 ::::
 :::
@@ -198,7 +198,8 @@ Also think about the order in which to do things.
 
 These are the minimum steps that need to happen, in this order:
 
-1. Select features
+1. Remove samples that have a missing outcome variable
+2. Select features
 2. Deal with missing data. The quickest way is to just drop all rows that have any missing value.
 3. Preprocess the features: scaling for numerical values, one-hot encoding for categorical values.
 4. Split the data in a train and test set.
@@ -212,22 +213,51 @@ We will not worry about the unbalanced target yet. Let's first see how a model p
 
 ::: challenge
 
+## Challenge: Remove samples with a missing outcome
+For a majority of the samples we have a missing outcome value. Can you remove those samples from the dataset?
+How many samples do we have left?
+
+**Note:** To drop people with missing outcome from the training data, the variable "outcome_available" should be used.
+That iss because the function for preprocessing that you will need to edit for real submissions (''clean_df" function)
+does not take the holdout_outcome dataset as an argument
+(to prevent cheating e.g. creating a column with predictions which equals the real outcome from the holdout data).
+
+:::: solution
+```python
+y_available = data['outcome_available']
+
+# Drop samples in both `data` and `outcome`:
+data = data.drop(data[~y_available].index, axis='rows')
+outcome = outcome.drop(outcome[~y_available].index, axis='rows')
+outcome.shape
+```
+
+```output
+(987, 2)
+```
+We have 987 samples left
+
+::::
+:::
+
+
+::: challenge
+
 ## Challenge: Selecting data for a quick and dirty first model
 
-1. Take max 5 minutes to have a look at the codebook. Quickly pick 5 variables that you think will have some explanatory value for predicting fertility.
+1. Take max 5 minutes to have a look at the codebook. Quickly pick 4 variables that you think will have some explanatory value for predicting fertility.
 2. Use `pandas` to keep only these columns in your dataset
 
 :::: solution
 There is no right or wrong here.
 
-A good set to start with would be to pick 5 variables from 2019. The most recent year has probably the most explanatory value.
-Based on gut-feeling we selected these 5 variables:
+A good set to start with would be to pick 4 variables from 2020. The most recent year has probably the most explanatory value.
+Based on gut-feeling we selected these 4 variables:
 
-* burgstat2019
-* leeftijd2019
-* woonvorm2019
-* oplmet2019
-* aantalki2019
+* burgstat_2020
+* birthyear_bg
+* woonvorm_2020
+* oplmet_2020
 
 What matters is that you for the first cycle, just quickly pick the most promising variables.
 
@@ -238,7 +268,7 @@ This is maybe something you are not used to in research!
 #### 2. Select the data
 
 ```python
-selected_columns = ['burgstat2019', 'leeftijd2019', 'woonvorm2019', 'oplmet2019', 'aantalki2019']
+selected_columns = ['burgstat_2020', 'birthyear_bg', 'woonvorm_2020', 'oplmet_2020']
 features = data[selected_columns]
 ```
 ::::
@@ -252,9 +282,6 @@ The quick and dirty way is to just get rid of all rows that contain any missing 
 
 ## Challenge: Remove missing values
 Remove all samples in both the features and target that have any missing value.
-NB: so if the target value is null or any of the features is null we drop the entire sample.
-
-Hint: You need to find a clever way to delete the samples in both the target and feature datasets.
 
 How many samples do we have left?
 
@@ -263,27 +290,21 @@ How many samples do we have left?
 ## Solution
 
 ```python
-# The null values in the target variable
-y_isna = outcome['new_child'].isnull()
-
 # The rows where any of the features is NaN
-X_isna = features.isnull().any(axis=1)
+X_isna = features.isna().any(axis=1)
 
-# For both datasets drop rows where any of the features is NaN OR the outcome is NaN
-features = features.drop(features[y_isna | X_isna].index)
-outcome = outcome.drop(outcome[y_isna | X_isna].index)
+features = features.drop(features[y_isna].index)
+outcome = outcome.drop(outcome[y_isna].index)
 ```
-You could also first `join` the two datasets, drop any row with missing value,
-then split the datasets again.
 
 ```python
 features.shape
 ```
 ```outcome
-(1292, 5)
+(983, 4)
 ```
 
-There are 1292 samples left.
+There are 983 samples left, so we dropped 4 additional samples
 
 ::::
 :::
@@ -411,8 +432,8 @@ _ = ConfusionMatrixDisplay.from_estimator(model, X_test, y_test)
 ![](../fig/confusion-matrix-1.png)
 
 As you can see the model almost always predicts the majority class (0 - no kids).
-Because 84% of the data falls within this class, this is actually not a bad strategy. 
-It leads to an accuracy of 84%!
+Because 79% of the data falls within this class, this is actually not a bad strategy.
+It leads to an accuracy of 79%!
 
 Of course this is not what we want, we also want to model to make correct predictions for the minority class.
 
@@ -424,7 +445,7 @@ We thus have to deal with imbalanced data!
 ## 7. Dealing with imbalanced data
 
 ::: challenge
-## Challenge: How do deal with unbalanced ata?
+## Challenge: How do deal with unbalanced data?
 What do you think is a good way to deal with the unbalance in the target variable?
 
 :::: solution
@@ -472,12 +493,12 @@ y_balanced.mean()
 0.5
 ```
 
-Check that there is now indeed more in the training set:
+Check that there is now indeed more data in the training set:
 ```python
 X_balanced.shape
 ```
 ```output
-(1506, 5)
+(1080, 4)
 ```
 ::::
 :::
@@ -526,6 +547,8 @@ Recall gives us a measure for how many of the households that are actually 'fert
 F1-score is the harmonic mean of the two.
 
 ```python
+from sklearn.metrics import precision_recall_fscore_support
+
 y_pred = model.predict(X_test)
 p, r, f, _ = precision_recall_fscore_support(y_test, y_pred, average='binary')
 print(f'Precision: {p}, recall: {r}, F1-score: {f}')
