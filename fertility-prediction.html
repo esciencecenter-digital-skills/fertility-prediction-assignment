@@ -295,11 +295,10 @@ yourself.</p>
 <hr class="half-width"><p>The goal is to predict who will have a child in the next 3 years,
 based on all the data from previous years.</p>
 <p>To train your models, you will have all the background data
-(features) up to 2019 and the data about the outcome - having a child in
-2020-2022 (for about half of cases). So, the outcome is binary (0 - no
-new children in 2020-2022, 1- at least one new child in 2020-2022). The
-performance of the models will then be tested on the remaining
-cases.</p>
+(features) up to 2020 and the data about the outcome - having a child in
+2021-2023. So, the outcome is binary (0 - no new children in 2021-2023,
+1- at least one new child in 2021-2023). The performance of the models
+will then be tested on the remaining cases.</p>
 <p>You are encouraged to use different strategies to predict the outcome
 – e.g. theory-driven (to select a relatively small set of variables that
 were found significant in previous studies) and data-driven
@@ -327,7 +326,7 @@ intentions</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>This is a classification problem</li>
 <li>Inputs are the background data of the persons (for example gender,
@@ -362,7 +361,7 @@ a solution.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="reading-in-the-features">Reading in the features:<a class="anchor" aria-label="anchor" href="#reading-in-the-features"></a></h3>
@@ -370,10 +369,10 @@ a solution.</li>
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># This might result in UnicodeDecodeError: 'utf-8' codec can't decode byte 0x92 in position 50416: invalid start byte</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'LISS_example_input_data.csv'</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'data/PreFer_train_data_only_2020_vars.csv'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co"># To tackle the encoding error:</span></span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'LISS_example_input_data.csv'</span>, encoding<span class="op">=</span><span class="st">'cp1252'</span>)</span></code></pre>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'data/PreFer_train_data_only_2020_vars.csv'</span>, encoding<span class="op">=</span><span class="st">'cp1252'</span>)</span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -381,7 +380,7 @@ a solution.</li>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>outcome <span class="op">=</span> pd.read_csv(<span class="st">'LISS_example_groundtruth_data.csv'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>outcome <span class="op">=</span> pd.read_csv(<span class="st">'data/PreFer_train_outcome.csv'</span>)</span></code></pre>
 </div>
 </div>
 </div>
@@ -411,7 +410,7 @@ a solution.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Quickly explore the data:</p>
 <div class="codewrapper sourceCode" id="cb3">
@@ -422,45 +421,44 @@ a solution.</li>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>(9970, 2355)</code></pre>
+<pre class="output" tabindex="0"><code>(6418, 2290)</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>data.head(<span class="dv">10</span>)</span></code></pre>
 </div>
-<pre class="outcome"><code>	Unnamed: 0	nomem_encr	gebjaar	geslacht	nohouse_encr2019	wave2019	positie2019	leeftijd2019	lftdcat2019	lftdhhh2019	...	cw19l600	cw19l601	cw19l602	cw19l603	cw19l604	cw19l605	cw19l606	cw19l607	cw19l608	cw19l609
-0	1	800000.0	1980	Female	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-1	2	800018.0	1985	Male	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-2	3	800021.0	1979	Female	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-3	4	800033.0	1991	Male	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-4	5	800042.0	1975	Female	500277.0	201912.0	Wedded partner	44.0	35 - 44 years	47.0	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-5	6	800057.0	1975	Male	580532.0	201912.0	Unwedded partner	44.0	35 - 44 years	43.0	...	80.0	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-6	7	800076.0	1985	Female	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-7	8	800085.0	1977	Male	545773.0	201912.0	Household head	42.0	35 - 44 years	42.0	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-8	9	800091.0	1983	Male	515359.0	201912.0	Household head	36.0	35 - 44 years	36.0	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
-9	10	800100.0	1990	Female	518099.0	201912.0	Wedded partner	29.0	25 - 34 years	34.0	...	NaN	NaN</code></pre>
+<pre class="outcome"><code>	nomem_encr	cf20m_m	cf20m001	cf20m002	cf20m003	cf20m004	cf20m005	cf20m007	cf20m008	cf20m009	...	nettohh_f_2020	nettoink_2020	nettoink_f_2020	oplcat_2020	oplmet_2020	oplzon_2020	partner_2020	sted_2020	woning_2020	woonvorm_2020
+0	712619	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+1	706448	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	3263.0	1251.0	1251.0	3.0	3.0	3.0	1.0	1.0	1.0	3.0
+2	729145	202009.0	2.0	2009.0	1.0	45.0	1939.0	1.0	NaN	1945.0	...	8500.0	4250.0	4250.0	6.0	6.0	6.0	1.0	1.0	1.0	3.0
+3	729424	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+4	715619	202009.0	16.0	NaN	1.0	30.0	1964.0	1.0	NaN	1954.0	...	NaN	NaN	NaN	4.0	4.0	5.0	1.0	3.0	1.0	2.0
+5	715353	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+6	704754	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+7	726292	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN
+8	716711	202009.0	16.0	NaN	2.0	31.0	1950.0	1.0	NaN	1949.0	...	4166.0	2166.0	2166.0	5.0	5.0	5.0	1.0	2.0	1.0	2.0
+9	729919	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	NaN	...	NaN</code></pre>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>outcome.head(<span class="dv">10</span>)</span></code></pre>
 </div>
 <pre class="outcome"><code>	nomem_encr	new_child
-0	800000.0	NaN
-1	800018.0	NaN
-2	800021.0	NaN
-3	800033.0	NaN
-4	800042.0	NaN
-5	800057.0	0.0
-6	800076.0	NaN
-7	800085.0	NaN
-8	800091.0	NaN
-9	800100.0	1.0</code></pre>
-<ol style="list-style-type: decimal"><li>There are 2353 features (excluding <code>nomem_encr</code> which is
+0	712619	NaN
+1	706448	NaN
+2	729145	NaN
+3	729424	NaN
+4	715619	0.0
+5	715353	NaN
+6	704754	NaN
+7	726292	NaN
+8	716711	1.0
+9	729919	NaN</code></pre>
+<ol style="list-style-type: decimal"><li>There are 2289 features (excluding <code>nomem_encr</code> which is
 just an identifier)</li>
-<li>There are 9970 samples</li>
-<li>Yes, looking at the first 10 rows they are ondered in the same
-way.</li>
+<li>There are 6418 samples</li>
+<li>The outcome and features seem to be ordered in the same way</li>
 <li>The features are both categorical and numerical</li>
 </ol><div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -470,20 +468,20 @@ way.</li>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>count    1292.000000
-mean        0.164087
-std         0.370498
-min         0.000000
-25%         0.000000
-50%         0.000000
-75%         0.000000
-max         1.000000
+<pre class="output" tabindex="0"><code>count    987.000000
+mean       0.214792
+std        0.410886
+min        0.000000
+25%        0.000000
+50%        0.000000
+75%        0.000000
+max        1.000000
 Name: new_child, dtype: float64</code></pre>
 </div>
-<ol start="5" style="list-style-type: decimal"><li>The target variable is pretty unbalanced, only 16.4 % of the samples
+<ol start="5" style="list-style-type: decimal"><li>The target variable is pretty unbalanced, only 21.5 % of the samples
 are in the <code>1</code> class</li>
-<li>There are a lot of missing data in both the features and the
-outcome.</li>
+<li>There are is a lot of missing data in the features as well is in the
+output.</li>
 </ol></div>
 </div>
 </div>
@@ -516,10 +514,11 @@ things.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4">Show me the solution</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>These are the minimum steps that need to happen, in this order:</p>
-<ol style="list-style-type: decimal"><li>Select features</li>
+<ol style="list-style-type: decimal"><li>Remove samples that have a missing outcome variable</li>
+<li>Select features</li>
 <li>Deal with missing data. The quickest way is to just drop all rows
 that have any missing value.</li>
 <li>Preprocess the features: scaling for numerical values, one-hot
@@ -534,7 +533,56 @@ how a model performs on the unbalanced dataset.</p>
 </div>
 </section><section id="prepare-the-data"><h2 class="section-heading">4. Prepare the data<a class="anchor" aria-label="anchor" href="#prepare-the-data"></a>
 </h2>
-<hr class="half-width"><div id="challenge-selecting-data-for-a-quick-and-dirty-first-model" class="callout challenge">
+<hr class="half-width"><div id="challenge-remove-samples-with-a-missing-outcome" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="challenge-remove-samples-with-a-missing-outcome" class="callout-inner">
+<h3 class="callout-title">Challenge: Remove samples with a missing
+outcome<a class="anchor" aria-label="anchor" href="#challenge-remove-samples-with-a-missing-outcome"></a>
+</h3>
+<div class="callout-content">
+<p>For a majority of the samples we have a missing outcome value. Can
+you remove those samples from the dataset? How many samples do we have
+left?</p>
+<p><strong>Note:</strong> To drop people with missing outcome from the
+training data, the variable “outcome_available” should be used. That iss
+because the function for preprocessing that you will need to edit for
+real submissions (’’clean_df” function) does not take the
+holdout_outcome dataset as an argument (to prevent cheating
+e.g. creating a column with predictions which equals the real outcome
+from the holdout data).</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
+  <h4 class="accordion-header" id="headingSolution5">Show me the solution</h4>
+</button>
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>y_available <span class="op">=</span> data[<span class="st">'outcome_available'</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co"># Drop samples in both `data` and `outcome`:</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>data <span class="op">=</span> data.drop(data[<span class="op">~</span>y_available].index, axis<span class="op">=</span><span class="st">'rows'</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>outcome <span class="op">=</span> outcome.drop(outcome[<span class="op">~</span>y_available].index, axis<span class="op">=</span><span class="st">'rows'</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>outcome.shape</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>(987, 2)</code></pre>
+</div>
+<p>We have 987 samples left</p>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge-selecting-data-for-a-quick-and-dirty-first-model" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -543,7 +591,7 @@ how a model performs on the unbalanced dataset.</p>
 dirty first model<a class="anchor" aria-label="anchor" href="#challenge-selecting-data-for-a-quick-and-dirty-first-model"></a>
 </h3>
 <div class="callout-content">
-<ol style="list-style-type: decimal"><li>Take max 5 minutes to have a look at the codebook. Quickly pick 5
+<ol style="list-style-type: decimal"><li>Take max 5 minutes to have a look at the codebook. Quickly pick 4
 variables that you think will have some explanatory value for predicting
 fertility.</li>
 <li>Use <code>pandas</code> to keep only these columns in your
@@ -551,22 +599,21 @@ dataset</li>
 </ol></div>
 </div>
 </div>
-<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
-  <h4 class="accordion-header" id="headingSolution5">Show me the solution</h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
+  <h4 class="accordion-header" id="headingSolution6">Show me the solution</h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>There is no right or wrong here.</p>
-<p>A good set to start with would be to pick 5 variables from 2019. The
+<p>A good set to start with would be to pick 4 variables from 2020. The
 most recent year has probably the most explanatory value. Based on
-gut-feeling we selected these 5 variables:</p>
-<ul><li>burgstat2019</li>
-<li>leeftijd2019</li>
-<li>woonvorm2019</li>
-<li>oplmet2019</li>
-<li>aantalki2019</li>
+gut-feeling we selected these 4 variables:</p>
+<ul><li>burgstat_2020</li>
+<li>birthyear_bg</li>
+<li>woonvorm_2020</li>
+<li>oplmet_2020</li>
 </ul><p>What matters is that you for the first cycle, just quickly pick the
 most promising variables.</p>
 <p>You can easily spend hours deciding which variables to pick, but it
@@ -575,11 +622,11 @@ iterating from there. This is maybe something you are not used to in
 research!</p>
 <div class="section level4">
 <h4 id="select-the-data">2. Select the data<a class="anchor" aria-label="anchor" href="#select-the-data"></a></h4>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>selected_columns <span class="op">=</span> [<span class="st">'burgstat2019'</span>, <span class="st">'leeftijd2019'</span>, <span class="st">'woonvorm2019'</span>, <span class="st">'oplmet2019'</span>, <span class="st">'aantalki2019'</span>]</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>features <span class="op">=</span> data[selected_columns]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>selected_columns <span class="op">=</span> [<span class="st">'burgstat_2020'</span>, <span class="st">'birthyear_bg'</span>, <span class="st">'woonvorm_2020'</span>, <span class="st">'oplmet_2020'</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>features <span class="op">=</span> data[selected_columns]</span></code></pre>
 </div>
 </div>
 </div>
@@ -599,43 +646,34 @@ way is to just get rid of all rows that contain any missing value.</p>
 </h3>
 <div class="callout-content">
 <p>Remove all samples in both the features and target that have any
-missing value. NB: so if the target value is null or any of the features
-is null we drop the entire sample.</p>
-<p>Hint: You need to find a clever way to delete the samples in both the
-target and feature datasets.</p>
+missing value.</p>
 <p>How many samples do we have left?</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution7" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
-  <h4 class="accordion-header" id="headingSolution6">Show me the solution</h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
+  <h4 class="accordion-header" id="headingSolution7">Show me the solution</h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co"># The null values in the target variable</span></span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>y_isna <span class="op">=</span> outcome[<span class="st">'new_child'</span>].isnull()</span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="co"># The rows where any of the features is NaN</span></span>
-<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>X_isna <span class="op">=</span> features.isnull().<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="co"># For both datasets drop rows where any of the features is NaN OR the outcome is NaN</span></span>
-<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>features <span class="op">=</span> features.drop(features[y_isna <span class="op">|</span> X_isna].index)</span>
-<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a>outcome <span class="op">=</span> outcome.drop(outcome[y_isna <span class="op">|</span> X_isna].index)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co"># The rows where any of the features is NaN</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>X_isna <span class="op">=</span> features.isna().<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>features <span class="op">=</span> features.drop(features[y_isna].index)</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>outcome <span class="op">=</span> outcome.drop(outcome[y_isna].index)</span></code></pre>
 </div>
-<p>You could also first <code>join</code> the two datasets, drop any row
-with missing value, then split the datasets again.</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>features.shape</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>features.shape</span></code></pre>
 </div>
-<pre class="outcome"><code>(1292, 5)</code></pre>
-<p>There are 1292 samples left.</p>
+<pre class="outcome"><code>(983, 4)</code></pre>
+<p>There are 983 samples left, so we dropped 4 additional samples</p>
 </div>
 </div>
 </div>
@@ -674,38 +712,38 @@ encoding for categorical values.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution7" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution8" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
-  <h4 class="accordion-header" id="headingSolution7">Show me the solution</h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
+  <h4 class="accordion-header" id="headingSolution8">Show me the solution</h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
 <div class="accordion-body">
 <p>Select the numerical and categorical columns automatically:</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> make_column_selector <span class="im">as</span> selector</span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>numerical_columns_selector <span class="op">=</span> selector(dtype_exclude<span class="op">=</span><span class="bu">object</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>categorical_columns_selector <span class="op">=</span> selector(dtype_include<span class="op">=</span><span class="bu">object</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>numerical_columns <span class="op">=</span> numerical_columns_selector(features)</span>
-<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>categorical_columns <span class="op">=</span> categorical_columns_selector(features)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> make_column_selector <span class="im">as</span> selector</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>numerical_columns_selector <span class="op">=</span> selector(dtype_exclude<span class="op">=</span><span class="bu">object</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>categorical_columns_selector <span class="op">=</span> selector(dtype_include<span class="op">=</span><span class="bu">object</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a>numerical_columns <span class="op">=</span> numerical_columns_selector(features)</span>
+<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a>categorical_columns <span class="op">=</span> categorical_columns_selector(features)</span></code></pre>
 </div>
 <p>Define a preprocessor:</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder, StandardScaler</span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>categorical_preprocessor <span class="op">=</span> OneHotEncoder(handle_unknown<span class="op">=</span><span class="st">"ignore"</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>numerical_preprocessor <span class="op">=</span> StandardScaler()</span>
-<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
-<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a>preprocessor <span class="op">=</span> ColumnTransformer([</span>
-<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a>    (<span class="st">'one-hot-encoder'</span>, categorical_preprocessor, categorical_columns),</span>
-<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a>    (<span class="st">'standard_scaler'</span>, numerical_preprocessor, numerical_columns)])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder, StandardScaler</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>categorical_preprocessor <span class="op">=</span> OneHotEncoder(handle_unknown<span class="op">=</span><span class="st">"ignore"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>numerical_preprocessor <span class="op">=</span> StandardScaler()</span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a>preprocessor <span class="op">=</span> ColumnTransformer([</span>
+<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a>    (<span class="st">'one-hot-encoder'</span>, categorical_preprocessor, categorical_columns),</span>
+<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a>    (<span class="st">'standard_scaler'</span>, numerical_preprocessor, numerical_columns)])</span></code></pre>
 </div>
 </div>
 </div>
@@ -727,19 +765,19 @@ encoding for categorical values.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution8" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution9" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
-  <h4 class="accordion-header" id="headingSolution8">Show me the solution</h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution9" aria-expanded="false" aria-controls="collapseSolution9">
+  <h4 class="accordion-header" id="headingSolution9">Show me the solution</h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
+<div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
-<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>    features, outcome[<span class="st">'new_child'</span>], test_size<span class="op">=</span><span class="fl">0.30</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>    features, outcome[<span class="st">'new_child'</span>], test_size<span class="op">=</span><span class="fl">0.30</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code></pre>
 </div>
 </div>
 </div>
@@ -761,21 +799,21 @@ encoding for categorical values.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution9" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution10" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution9" aria-expanded="false" aria-controls="collapseSolution9">
-  <h4 class="accordion-header" id="headingSolution9">Show me the solution</h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution10" aria-expanded="false" aria-controls="collapseSolution10">
+  <h4 class="accordion-header" id="headingSolution10">Show me the solution</h4>
 </button>
-<div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
+<div id="collapseSolution10" class="accordion-collapse collapse" aria-labelledby="headingSolution10" data-bs-parent="#accordionSolution10">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>model <span class="op">=</span> make_pipeline(preprocessor, LogisticRegression(max_iter<span class="op">=</span><span class="dv">500</span>))</span>
-<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a>model</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a>model <span class="op">=</span> make_pipeline(preprocessor, LogisticRegression(max_iter<span class="op">=</span><span class="dv">500</span>))</span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a>model</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -791,10 +829,10 @@ encoding for categorical values.</p>
                                                   ['leeftijd2019'])])),
                 ('logisticregression', LogisticRegression(max_iter=500))])</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>_ <span class="op">=</span> model.fit(X_train, y_train)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>_ <span class="op">=</span> model.fit(X_train, y_train)</span></code></pre>
 </div>
 </div>
 </div>
@@ -817,24 +855,24 @@ like this?</li>
 </ol></div>
 </div>
 </div>
-<div id="accordionSolution10" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution11" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution10" aria-expanded="false" aria-controls="collapseSolution10">
-  <h4 class="accordion-header" id="headingSolution10">Show me the solution</h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution11" aria-expanded="false" aria-controls="collapseSolution11">
+  <h4 class="accordion-header" id="headingSolution11">Show me the solution</h4>
 </button>
-<div id="collapseSolution10" class="accordion-collapse collapse" data-bs-parent="#accordionSolution10" aria-labelledby="headingSolution10">
+<div id="collapseSolution11" class="accordion-collapse collapse" aria-labelledby="headingSolution11" data-bs-parent="#accordionSolution11">
 <div class="accordion-body">
 <p>You can best visualize the results using a confusion matrix:</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> ConfusionMatrixDisplay</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>_ <span class="op">=</span> ConfusionMatrixDisplay.from_estimator(model, X_test, y_test)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> ConfusionMatrixDisplay</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a>_ <span class="op">=</span> ConfusionMatrixDisplay.from_estimator(model, X_test, y_test)</span></code></pre>
 </div>
 <figure><img src="fig/confusion-matrix-1.png" class="figure mx-auto d-block"></figure><p>As you can see the model almost always predicts the majority class (0
-- no kids). Because 84% of the data falls within this class, this is
-actually not a bad strategy. It leads to an accuracy of 84%!</p>
+- no kids). Because 79% of the data falls within this class, this is
+actually not a bad strategy. It leads to an accuracy of 79%!</p>
 <p>Of course this is not what we want, we also want to model to make
 correct predictions for the minority class.</p>
 <p>We thus have to deal with imbalanced data!</p>
@@ -844,13 +882,13 @@ correct predictions for the minority class.</p>
 </div>
 </section><section id="dealing-with-imbalanced-data"><h2 class="section-heading">7. Dealing with imbalanced data<a class="anchor" aria-label="anchor" href="#dealing-with-imbalanced-data"></a>
 </h2>
-<hr class="half-width"><div id="challenge-how-do-deal-with-unbalanced-ata" class="callout challenge">
+<hr class="half-width"><div id="challenge-how-do-deal-with-unbalanced-data" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="challenge-how-do-deal-with-unbalanced-ata" class="callout-inner">
+<div id="challenge-how-do-deal-with-unbalanced-data" class="callout-inner">
 <h3 class="callout-title">Challenge: How do deal with unbalanced
-ata?<a class="anchor" aria-label="anchor" href="#challenge-how-do-deal-with-unbalanced-ata"></a>
+data?<a class="anchor" aria-label="anchor" href="#challenge-how-do-deal-with-unbalanced-data"></a>
 </h3>
 <div class="callout-content">
 <p>What do you think is a good way to deal with the unbalance in the
@@ -858,12 +896,12 @@ target variable?</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution11" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution12" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution11" aria-expanded="false" aria-controls="collapseSolution11">
-  <h4 class="accordion-header" id="headingSolution11">Show me the solution</h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution12" aria-expanded="false" aria-controls="collapseSolution12">
+  <h4 class="accordion-header" id="headingSolution12">Show me the solution</h4>
 </button>
-<div id="collapseSolution11" class="accordion-collapse collapse" data-bs-parent="#accordionSolution11" aria-labelledby="headingSolution11">
+<div id="collapseSolution12" class="accordion-collapse collapse" aria-labelledby="headingSolution12" data-bs-parent="#accordionSolution12">
 <div class="accordion-body">
 <p>There are multiple ways to deal with this:</p>
 <ol style="list-style-type: decimal"><li>Find a model that can handle unbalanced data better</li>
@@ -888,48 +926,48 @@ strategy. Hint: Try googling first, but you can have a look at: <a href="https:/
 </div>
 </div>
 </div>
-<div id="accordionSolution12" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution13" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution12" aria-expanded="false" aria-controls="collapseSolution12">
-  <h4 class="accordion-header" id="headingSolution12">Show me the solution</h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution13" aria-expanded="false" aria-controls="collapseSolution13">
+  <h4 class="accordion-header" id="headingSolution13">Show me the solution</h4>
 </button>
-<div id="collapseSolution12" class="accordion-collapse collapse" data-bs-parent="#accordionSolution12" aria-labelledby="headingSolution12">
+<div id="collapseSolution13" class="accordion-collapse collapse" aria-labelledby="headingSolution13" data-bs-parent="#accordionSolution13">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="im">from</span> sklearn.utils <span class="im">import</span> resample</span>
-<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="co"># Create oversampled training data set for minority class</span></span>
-<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a>X_oversampled, y_oversampled <span class="op">=</span> resample(X_train[y_train <span class="op">==</span> <span class="dv">1</span>],</span>
-<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a>                                        y_train[y_train <span class="op">==</span> <span class="dv">1</span>],</span>
-<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a>                                        replace<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a>                                        n_samples<span class="op">=</span>X_train[y_train <span class="op">==</span> <span class="dv">0</span>].shape[<span class="dv">0</span>],</span>
-<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a>                                        random_state<span class="op">=</span><span class="dv">123</span>)</span>
-<span id="cb22-10"><a href="#cb22-10" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb22-11"><a href="#cb22-11" tabindex="-1"></a><span class="co"># Append the oversampled minority class to training data and related labels</span></span>
-<span id="cb22-12"><a href="#cb22-12" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb22-13"><a href="#cb22-13" tabindex="-1"></a>X_balanced <span class="op">=</span> pd.concat((X_train[y_train <span class="op">==</span> <span class="dv">0</span>], X_oversampled))</span>
-<span id="cb22-14"><a href="#cb22-14" tabindex="-1"></a>y_balanced <span class="op">=</span> pd.concat((y_train[y_train <span class="op">==</span> <span class="dv">0</span>], y_oversampled))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="im">from</span> sklearn.utils <span class="im">import</span> resample</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="co"># Create oversampled training data set for minority class</span></span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>X_oversampled, y_oversampled <span class="op">=</span> resample(X_train[y_train <span class="op">==</span> <span class="dv">1</span>],</span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a>                                        y_train[y_train <span class="op">==</span> <span class="dv">1</span>],</span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a>                                        replace<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a>                                        n_samples<span class="op">=</span>X_train[y_train <span class="op">==</span> <span class="dv">0</span>].shape[<span class="dv">0</span>],</span>
+<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a>                                        random_state<span class="op">=</span><span class="dv">123</span>)</span>
+<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb24-11"><a href="#cb24-11" tabindex="-1"></a><span class="co"># Append the oversampled minority class to training data and related labels</span></span>
+<span id="cb24-12"><a href="#cb24-12" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb24-13"><a href="#cb24-13" tabindex="-1"></a>X_balanced <span class="op">=</span> pd.concat((X_train[y_train <span class="op">==</span> <span class="dv">0</span>], X_oversampled))</span>
+<span id="cb24-14"><a href="#cb24-14" tabindex="-1"></a>y_balanced <span class="op">=</span> pd.concat((y_train[y_train <span class="op">==</span> <span class="dv">0</span>], y_oversampled))</span></code></pre>
 </div>
 <p>Check that the data is indeed balanced:</p>
-<div class="codewrapper sourceCode" id="cb23">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>y_balanced.mean()</span></code></pre>
-</div>
-<pre class="outcome"><code><span><span class="fl">0.5</span></span></code></pre>
-<p>Check that there is now indeed more in the training set:</p>
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>X_balanced.shape</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>y_balanced.mean()</span></code></pre>
+</div>
+<pre class="outcome"><code><span><span class="fl">0.5</span></span></code></pre>
+<p>Check that there is now indeed more data in the training set:</p>
+<div class="codewrapper sourceCode" id="cb27">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>X_balanced.shape</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>(1506, 5)</code></pre>
+<pre class="output" tabindex="0"><code>(1080, 4)</code></pre>
 </div>
 </div>
 </div>
@@ -953,18 +991,18 @@ dataset<a class="anchor" aria-label="anchor" href="#challenge-train-the-model-on
 </ol></div>
 </div>
 </div>
-<div id="accordionSolution13" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution14" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution13" aria-expanded="false" aria-controls="collapseSolution13">
-  <h4 class="accordion-header" id="headingSolution13">Show me the solution</h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution14" aria-expanded="false" aria-controls="collapseSolution14">
+  <h4 class="accordion-header" id="headingSolution14">Show me the solution</h4>
 </button>
-<div id="collapseSolution13" class="accordion-collapse collapse" data-bs-parent="#accordionSolution13" aria-labelledby="headingSolution13">
+<div id="collapseSolution14" class="accordion-collapse collapse" aria-labelledby="headingSolution14" data-bs-parent="#accordionSolution14">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb27">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>_ <span class="op">=</span> model.fit(X_balanced, y_balanced)</span>
-<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>_ <span class="op">=</span> ConfusionMatrixDisplay.from_estimator(model, X_test, y_test)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a>_ <span class="op">=</span> model.fit(X_balanced, y_balanced)</span>
+<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a>_ <span class="op">=</span> ConfusionMatrixDisplay.from_estimator(model, X_test, y_test)</span></code></pre>
 </div>
 <figure><img src="fig/confusion-matrix-2.png" class="figure mx-auto d-block"></figure><p>This already looks much better! The predictions are more balanced
 over the two classes, and are also quite often correct. So balancing the
@@ -991,12 +1029,12 @@ the dataset is unbalanced.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution14" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution15" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution14" aria-expanded="false" aria-controls="collapseSolution14">
-  <h4 class="accordion-header" id="headingSolution14">Show me the solution</h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution15" aria-expanded="false" aria-controls="collapseSolution15">
+  <h4 class="accordion-header" id="headingSolution15">Show me the solution</h4>
 </button>
-<div id="collapseSolution14" class="accordion-collapse collapse" data-bs-parent="#accordionSolution14" aria-labelledby="headingSolution14">
+<div id="collapseSolution15" class="accordion-collapse collapse" aria-labelledby="headingSolution15" data-bs-parent="#accordionSolution15">
 <div class="accordion-body">
 <p>Good evaluation metrics would be precision, recall, and F1-score for
 the positive class (getting a child in the next 3 years) This of course
@@ -1007,12 +1045,14 @@ as ‘fertile’ was that a correct prediction. Recall gives us a measure
 for how many of the households that are actually ‘fertile’ how many we
 correctly ‘detect’ as being fertile.</p>
 <p>F1-score is the harmonic mean of the two.</p>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)</span>
-<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>p, r, f, _ <span class="op">=</span> precision_recall_fscore_support(y_test, y_pred, average<span class="op">=</span><span class="st">'binary'</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Precision: </span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">, recall: </span><span class="sc">{</span>r<span class="sc">}</span><span class="ss">, F1-score: </span><span class="sc">{</span>f<span class="sc">}</span><span class="ss">'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> precision_recall_fscore_support</span>
+<span id="cb30-2"><a href="#cb30-2" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(X_test)</span>
+<span id="cb30-4"><a href="#cb30-4" tabindex="-1"></a>p, r, f, _ <span class="op">=</span> precision_recall_fscore_support(y_test, y_pred, average<span class="op">=</span><span class="st">'binary'</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Precision: </span><span class="sc">{</span>p<span class="sc">}</span><span class="ss">, recall: </span><span class="sc">{</span>r<span class="sc">}</span><span class="ss">, F1-score: </span><span class="sc">{</span>f<span class="sc">}</span><span class="ss">'</span>)</span></code></pre>
 </div>
 <pre class="outcome"><code>Precision: 0.23387096774193547, recall: 0.6590909090909091, F1-score: 0.3452380952380952</code></pre>
 <p>Challenge: Test your understanding of precision and recall by
@@ -1044,12 +1084,12 @@ seem most promising to try out in the next cycle.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution15" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution16" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution15" aria-expanded="false" aria-controls="collapseSolution15">
-  <h4 class="accordion-header" id="headingSolution15">Show me the solution</h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution16" aria-expanded="false" aria-controls="collapseSolution16">
+  <h4 class="accordion-header" id="headingSolution16">Show me the solution</h4>
 </button>
-<div id="collapseSolution15" class="accordion-collapse collapse" data-bs-parent="#accordionSolution15" aria-labelledby="headingSolution15">
+<div id="collapseSolution16" class="accordion-collapse collapse" aria-labelledby="headingSolution16" data-bs-parent="#accordionSolution16">
 <div class="accordion-body">
 <p>There is no right or wrong, but here are some pointers:</p>
 <ul><li>Include more features. You can think of automated feature selection
