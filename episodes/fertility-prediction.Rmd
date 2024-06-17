@@ -224,11 +224,11 @@ does not take the holdout_outcome dataset as an argument
 
 :::: solution
 ```python
-y_available = data['outcome_available']
+y_missing = data['outcome_available'] == 0
 
 # Drop samples in both `data` and `outcome`:
-data = data.drop(data[~y_available].index, axis='rows')
-outcome = outcome.drop(outcome[~y_available].index, axis='rows')
+data = data.drop(data[y_missing].index, axis='rows')
+outcome = outcome.drop(outcome[y_missing].index, axis='rows')
 outcome.shape
 ```
 
