@@ -719,8 +719,8 @@ missing value.</p>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co"># The rows where any of the features is NaN</span></span>
 <span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>X_isna <span class="op">=</span> features.isna().<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>features <span class="op">=</span> features.drop(features[y_isna].index)</span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>outcome <span class="op">=</span> outcome.drop(outcome[y_isna].index)</span></code></pre>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>features <span class="op">=</span> features.drop(features[X_isna].index)</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>outcome <span class="op">=</span> outcome.drop(outcome[X_isna].index)</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
