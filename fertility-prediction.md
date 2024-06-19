@@ -114,7 +114,7 @@ Quickly explore the data:
 data.shape
 ```
 ```output
-(6418, 2290)
+(6418, 2291)
 ```
 
 ```python
@@ -152,7 +152,7 @@ outcome.head(10)
 9	729919	NaN
 ```
 
-1. There are 2289 features (excluding `nomem_encr` which is just an identifier)
+1. There are 2290 features (excluding `nomem_encr` which is just an identifier)
 2. There are 6418 samples
 3. The outcome and features seem to be ordered in the same way
 4. The features are both categorical and numerical
