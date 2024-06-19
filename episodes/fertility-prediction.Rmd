@@ -192,6 +192,8 @@ Take shortcuts where possible.
 It does not need to be a very accurate predictor (yet ;) ).
 Also think about the order in which to do things.
 
+NB: You do not have to execute the steps yet, in the next challenges we will guide you through the steps one-by-one.
+
 :::: solution
 
 ## Solution
