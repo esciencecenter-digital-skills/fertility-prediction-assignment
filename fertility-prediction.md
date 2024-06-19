@@ -67,7 +67,7 @@ Features that can be used for the first simple models: gender, age, education le
 
 ## Challenge: Reading in the data
 
-1. Try to read in the data using pandas. The features are in 'LISS 2019.csv', the outcome variable is stored in 'outcome.csv'/
+1. Try to read in the data using pandas. The features are in 'PreFer_train_data_only_2020_vars.csv', the outcome variable is stored in 'PreFer_train_outcome.csv'/
 Hint: You might run into an encoding error. See if you can fix it by googling for a solution.
 
 :::: solution 
