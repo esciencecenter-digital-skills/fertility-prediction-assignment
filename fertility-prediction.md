@@ -295,8 +295,8 @@ How many samples do we have left?
 # The rows where any of the features is NaN
 X_isna = features.isna().any(axis=1)
 
-features = features.drop(features[y_isna].index)
-outcome = outcome.drop(outcome[y_isna].index)
+features = features.drop(features[X_isna].index)
+outcome = outcome.drop(outcome[X_isna].index)
 ```
 
 ```python
