@@ -196,13 +196,13 @@ Also think about the order in which to do things.
 
 ## Solution
 
-These are the minimum steps that need to happen, in this order:
+These are the minimum steps that need to happen, in this order (the order is a bit arbitrary, it is important that you split the data before doing any fitting):
 
 1. Remove samples that have a missing outcome variable
 2. Select features
 2. Deal with missing data. The quickest way is to just drop all rows that have any missing value.
-3. Preprocess the features: scaling for numerical values, one-hot encoding for categorical values.
-4. Split the data in a train and test set.
+3. Split the data in a train and test set.
+4. Preprocess the features: scaling for numerical values, one-hot encoding for categorical values.
 5. Train the model and evaluate!
 
 We will not worry about the unbalanced target yet. Let's first see how a model performs on the unbalanced dataset.
