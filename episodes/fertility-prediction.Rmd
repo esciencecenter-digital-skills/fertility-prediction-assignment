@@ -556,7 +556,7 @@ p, r, f, _ = precision_recall_fscore_support(y_test, y_pred, average='binary')
 print(f'Precision: {p}, recall: {r}, F1-score: {f}')
 ```
 ```outcome
-Precision: 0.23387096774193547, recall: 0.6590909090909091, F1-score: 0.3452380952380952
+Precision: 0.2644628099173554, recall: 0.5, F1-score: 0.34594594594594597
 ```
 
 Challenge: Test your understanding of precision and recall by computing the scores by hand! You can use the numbers shown in the confusion matrix for this.
