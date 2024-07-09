@@ -27,7 +27,7 @@
             <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
           </abbr>
         </span>
-        
+
       </div>
     </div>
     <div class="selector-container">
@@ -56,7 +56,7 @@
             </li>
           </ul></li>
       </div>
-      
+
       <div class="dropdown" id="instructor-dropdown">
         <button class="btn btn-secondary dropdown-toggle bordered-button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
           <i aria-hidden="true" class="icon" data-feather="eye"></i> Instructor View <i data-feather="chevron-down"></i>
@@ -180,7 +180,7 @@
                 </div><!--/div.accordion-flush-->
               </div><!--div.sidenav-view-selector -->
             </div><!--/div.col -->
-      
+
             <hr></div><!--/div.mobile-row -->
 
           <div class="accordion accordion-flush" id="accordionFlush11">
@@ -199,7 +199,7 @@
     <div class="accordion-header" id="flush-heading1">
         <a href="index.html">Summary and Schedule</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -213,7 +213,7 @@
         </span>
       </button>
     </div><!--/div.accordion-header-->
-        
+
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#introducing-the-assignment">Introducing the assignment</a></li>
@@ -229,7 +229,7 @@
 <li><a href="#adapt-train-evaluate.-adapt-train-evaluate.">10. Adapt, train, evaluate. Adapt, train, evaluate.</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -261,10 +261,10 @@
               </div>
             </div>
             <hr class="half-width resources"><a href="../instructor/aio.html">See all in one page</a>
-            
+
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
-            
+
             </div>
           </div><!-- /div.accordion -->
         </div><!-- /div.sidebar-inner -->
@@ -292,13 +292,13 @@
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Fertility prediction using LISS data</h1>
         <p>Last updated on 2024-07-02 |
-        
+
         <a href="https://github.com/esciencecenter-digital-skills/fertility-prediction-assignment/edit/main/episodes/fertility-prediction.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-        
-        
-        
+
+
+
         <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 300 minutes</p>
-        
+
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -327,8 +327,8 @@ project.</li>
 </div>
 </div>
 </div>
-<section id="introducing-the-assignment"><h2 class="section-heading">Introducing the assignment<a class="anchor" aria-label="anchor" href="#introducing-the-assignment"></a>
-</h2>
+<section><h2 class="section-heading" id="introducing-the-assignment">Introducing the assignment<a class="anchor" aria-label="anchor" href="#introducing-the-assignment"></a>
+<a class="anchor" aria-label="anchor" href="#introducing-the-assignment"></a></h2>
 <hr class="half-width"><p>In this assignment you will work individually on a machine learning
 problem. The end-goal is that you are able to pick up a real-world
 machine learning project.</p>
@@ -345,8 +345,8 @@ hesitate to let the solutions guide you, or ask one of the trainers.</p>
 <p>You will have to find a balance between guidance and self-exploration
 yourself.</p>
 </div>
-</section><section id="introducing-the-problem"><h2 class="section-heading">1. Introducing the problem<a class="anchor" aria-label="anchor" href="#introducing-the-problem"></a>
-</h2>
+</section><section><h2 class="section-heading" id="introducing-the-problem">1. Introducing the problem<a class="anchor" aria-label="anchor" href="#introducing-the-problem"></a>
+<a class="anchor" aria-label="anchor" href="#introducing-the-problem"></a></h2>
 <hr class="half-width"><p>The goal is to predict who will have a child in the next 3 years,
 based on all the data from previous years.</p>
 <p>To train your models, you will have all the background data
@@ -381,7 +381,7 @@ intentions</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>This is a classification problem</li>
 <li>Inputs are the background data of the persons (for example gender,
@@ -394,8 +394,8 @@ classification problem.</li>
 </div>
 </div>
 </div>
-</section><section id="reading-in-and-exploring-the-data"><h2 class="section-heading">2. Reading in and exploring the data<a class="anchor" aria-label="anchor" href="#reading-in-and-exploring-the-data"></a>
-</h2>
+</section><section><h2 class="section-heading" id="reading-in-and-exploring-the-data">2. Reading in and exploring the data<a class="anchor" aria-label="anchor" href="#reading-in-and-exploring-the-data"></a>
+<a class="anchor" aria-label="anchor" href="#reading-in-and-exploring-the-data"></a></h2>
 <hr class="half-width"><div id="challenge-reading-in-the-data" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -416,7 +416,7 @@ error. See if you can fix it by googling for a solution.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="reading-in-the-features">Reading in the features:<a class="anchor" aria-label="anchor" href="#reading-in-the-features"></a></h3>
@@ -465,7 +465,7 @@ error. See if you can fix it by googling for a solution.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Quickly explore the data:</p>
 <div class="codewrapper sourceCode" id="cb3">
@@ -541,8 +541,8 @@ output.</li>
 </div>
 </div>
 </div>
-</section><section id="taking-a-step-back"><h2 class="section-heading">3. Taking a step back<a class="anchor" aria-label="anchor" href="#taking-a-step-back"></a>
-</h2>
+</section><section><h2 class="section-heading" id="taking-a-step-back">3. Taking a step back<a class="anchor" aria-label="anchor" href="#taking-a-step-back"></a>
+<a class="anchor" aria-label="anchor" href="#taking-a-step-back"></a></h2>
 <hr class="half-width"><p>Before you start enthusiastically typing all kinds of pandas and
 sklearn commands that you just learned. Now that you have explored the
 data, it is good to take a step back and think about how you want to
@@ -571,7 +571,7 @@ we will guide you through the steps one-by-one.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>These are the minimum steps that need to happen, in this order (the
 order is a bit arbitrary, it is important that you split the data before
@@ -590,8 +590,8 @@ how a model performs on the unbalanced dataset.</p>
 </div>
 </div>
 </div>
-</section><section id="prepare-the-data"><h2 class="section-heading">4. Prepare the data<a class="anchor" aria-label="anchor" href="#prepare-the-data"></a>
-</h2>
+</section><section><h2 class="section-heading" id="prepare-the-data">4. Prepare the data<a class="anchor" aria-label="anchor" href="#prepare-the-data"></a>
+<a class="anchor" aria-label="anchor" href="#prepare-the-data"></a></h2>
 <hr class="half-width"><div id="challenge-remove-samples-with-a-missing-outcome" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -618,7 +618,7 @@ from the holdout data).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -661,7 +661,7 @@ dataset</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <p>There is no right or wrong here.</p>
 <p>A good set to start with would be to pick 4 variables from 2020. The
@@ -713,7 +713,7 @@ missing value.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
   <h4 class="accordion-header" id="headingSolution7"> Show me the solution </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -774,7 +774,7 @@ encoding for categorical values.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
   <h4 class="accordion-header" id="headingSolution8"> Show me the solution </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
 <p>Select the numerical and categorical columns automatically:</p>
 <div class="codewrapper sourceCode" id="cb17">
@@ -827,7 +827,7 @@ encoding for categorical values.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution9" aria-expanded="false" aria-controls="collapseSolution9">
   <h4 class="accordion-header" id="headingSolution9"> Show me the solution </h4>
 </button>
-<div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
+<div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -841,8 +841,8 @@ encoding for categorical values.</p>
 </div>
 </div>
 </div>
-</section><section id="train-a-model"><h2 class="section-heading">5. Train a model<a class="anchor" aria-label="anchor" href="#train-a-model"></a>
-</h2>
+</section><section><h2 class="section-heading" id="train-a-model">5. Train a model<a class="anchor" aria-label="anchor" href="#train-a-model"></a>
+<a class="anchor" aria-label="anchor" href="#train-a-model"></a></h2>
 <hr class="half-width"><div id="challenge-train-the-model" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -861,7 +861,7 @@ encoding for categorical values.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution10" aria-expanded="false" aria-controls="collapseSolution10">
   <h4 class="accordion-header" id="headingSolution10"> Show me the solution </h4>
 </button>
-<div id="collapseSolution10" class="accordion-collapse collapse" aria-labelledby="headingSolution10" data-bs-parent="#accordionSolution10">
+<div id="collapseSolution10" class="accordion-collapse collapse" data-bs-parent="#accordionSolution10" aria-labelledby="headingSolution10">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -895,8 +895,8 @@ encoding for categorical values.</p>
 </div>
 </div>
 </div>
-</section><section id="evaluate-the-model"><h2 class="section-heading">6. Evaluate the model<a class="anchor" aria-label="anchor" href="#evaluate-the-model"></a>
-</h2>
+</section><section><h2 class="section-heading" id="evaluate-the-model">6. Evaluate the model<a class="anchor" aria-label="anchor" href="#evaluate-the-model"></a>
+<a class="anchor" aria-label="anchor" href="#evaluate-the-model"></a></h2>
 <hr class="half-width"><div id="challenge-evaluate-the-model" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -917,7 +917,7 @@ like this?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution11" aria-expanded="false" aria-controls="collapseSolution11">
   <h4 class="accordion-header" id="headingSolution11"> Show me the solution </h4>
 </button>
-<div id="collapseSolution11" class="accordion-collapse collapse" aria-labelledby="headingSolution11" data-bs-parent="#accordionSolution11">
+<div id="collapseSolution11" class="accordion-collapse collapse" data-bs-parent="#accordionSolution11" aria-labelledby="headingSolution11">
 <div class="accordion-body">
 <p>You can best visualize the results using a confusion matrix:</p>
 <div class="codewrapper sourceCode" id="cb23">
@@ -937,8 +937,8 @@ correct predictions for the minority class.</p>
 </div>
 </div>
 </div>
-</section><section id="dealing-with-imbalanced-data"><h2 class="section-heading">7. Dealing with imbalanced data<a class="anchor" aria-label="anchor" href="#dealing-with-imbalanced-data"></a>
-</h2>
+</section><section><h2 class="section-heading" id="dealing-with-imbalanced-data">7. Dealing with imbalanced data<a class="anchor" aria-label="anchor" href="#dealing-with-imbalanced-data"></a>
+<a class="anchor" aria-label="anchor" href="#dealing-with-imbalanced-data"></a></h2>
 <hr class="half-width"><div id="challenge-how-do-deal-with-unbalanced-data" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -957,7 +957,7 @@ target variable?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution12" aria-expanded="false" aria-controls="collapseSolution12">
   <h4 class="accordion-header" id="headingSolution12"> Show me the solution </h4>
 </button>
-<div id="collapseSolution12" class="accordion-collapse collapse" aria-labelledby="headingSolution12" data-bs-parent="#accordionSolution12">
+<div id="collapseSolution12" class="accordion-collapse collapse" data-bs-parent="#accordionSolution12" aria-labelledby="headingSolution12">
 <div class="accordion-body">
 <p>There are multiple ways to deal with this:</p>
 <ol style="list-style-type: decimal"><li>Find a model that can handle unbalanced data better</li>
@@ -987,7 +987,7 @@ strategy. Hint: Try googling first, but you can have a look at: <a href="https:/
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution13" aria-expanded="false" aria-controls="collapseSolution13">
   <h4 class="accordion-header" id="headingSolution13"> Show me the solution </h4>
 </button>
-<div id="collapseSolution13" class="accordion-collapse collapse" aria-labelledby="headingSolution13" data-bs-parent="#accordionSolution13">
+<div id="collapseSolution13" class="accordion-collapse collapse" data-bs-parent="#accordionSolution13" aria-labelledby="headingSolution13">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1029,8 +1029,8 @@ strategy. Hint: Try googling first, but you can have a look at: <a href="https:/
 </div>
 </div>
 </div>
-</section><section id="train-and-evaluate-the-model-trained-on-a-balanced-dataset"><h2 class="section-heading">8. Train and evaluate the model trained on a balanced dataset<a class="anchor" aria-label="anchor" href="#train-and-evaluate-the-model-trained-on-a-balanced-dataset"></a>
-</h2>
+</section><section><h2 class="section-heading" id="train-and-evaluate-the-model-trained-on-a-balanced-dataset">8. Train and evaluate the model trained on a balanced dataset<a class="anchor" aria-label="anchor" href="#train-and-evaluate-the-model-trained-on-a-balanced-dataset"></a>
+<a class="anchor" aria-label="anchor" href="#train-and-evaluate-the-model-trained-on-a-balanced-dataset"></a></h2>
 <hr class="half-width"><p>Now that we have balanced our dataset, we can see whether this
 improves the performance of our model!</p>
 <div id="challenge-train-the-model-on-the-balanced-dataset" class="callout challenge">
@@ -1051,7 +1051,7 @@ improves the performance of our model!</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution14" aria-expanded="false" aria-controls="collapseSolution14">
   <h4 class="accordion-header" id="headingSolution14"> Show me the solution </h4>
 </button>
-<div id="collapseSolution14" class="accordion-collapse collapse" aria-labelledby="headingSolution14" data-bs-parent="#accordionSolution14">
+<div id="collapseSolution14" class="accordion-collapse collapse" data-bs-parent="#accordionSolution14" aria-labelledby="headingSolution14">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1066,8 +1066,8 @@ data helped a lot!</p>
 </div>
 </div>
 </div>
-</section><section id="use-evaluation-metrics-to-evaluate-the-model"><h2 class="section-heading">9. Use evaluation metrics to evaluate the model<a class="anchor" aria-label="anchor" href="#use-evaluation-metrics-to-evaluate-the-model"></a>
-</h2>
+</section><section><h2 class="section-heading" id="use-evaluation-metrics-to-evaluate-the-model">9. Use evaluation metrics to evaluate the model<a class="anchor" aria-label="anchor" href="#use-evaluation-metrics-to-evaluate-the-model"></a>
+<a class="anchor" aria-label="anchor" href="#use-evaluation-metrics-to-evaluate-the-model"></a></h2>
 <hr class="half-width"><p>So far we have used a confusion matrix to visually evaluate the
 model. When proceeding it would be better to use evaluation metrics for
 this.</p>
@@ -1089,7 +1089,7 @@ the dataset is unbalanced.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution15" aria-expanded="false" aria-controls="collapseSolution15">
   <h4 class="accordion-header" id="headingSolution15"> Show me the solution </h4>
 </button>
-<div id="collapseSolution15" class="accordion-collapse collapse" aria-labelledby="headingSolution15" data-bs-parent="#accordionSolution15">
+<div id="collapseSolution15" class="accordion-collapse collapse" data-bs-parent="#accordionSolution15" aria-labelledby="headingSolution15">
 <div class="accordion-body">
 <p>Good evaluation metrics would be precision, recall, and F1-score for
 the positive class (getting a child in the next 3 years) This of course
@@ -1117,8 +1117,8 @@ confusion matrix for this.</p>
 </div>
 </div>
 </div>
-</section><section id="adapt-train-evaluate.-adapt-train-evaluate."><h2 class="section-heading">10. Adapt, train, evaluate. Adapt, train, evaluate.<a class="anchor" aria-label="anchor" href="#adapt-train-evaluate.-adapt-train-evaluate."></a>
-</h2>
+</section><section><h2 class="section-heading" id="adapt-train-evaluate--adapt-train-evaluate-">10. Adapt, train, evaluate. Adapt, train, evaluate.<a class="anchor" aria-label="anchor" href="#adapt-train-evaluate.-adapt-train-evaluate."></a>
+<a class="anchor" aria-label="anchor" href="#adapt-train-evaluate--adapt-train-evaluate-"></a></h2>
 <hr class="half-width"><p>Good job! You have now set up a simple, yet effective machine
 learning pipeline on a real-world problem. Notice that you already went
 through the machine learning cycle twice. From this point onward it is a
@@ -1144,7 +1144,7 @@ seem most promising to try out in the next cycle.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution16" aria-expanded="false" aria-controls="collapseSolution16">
   <h4 class="accordion-header" id="headingSolution16"> Show me the solution </h4>
 </button>
-<div id="collapseSolution16" class="accordion-collapse collapse" aria-labelledby="headingSolution16" data-bs-parent="#accordionSolution16">
+<div id="collapseSolution16" class="accordion-collapse collapse" data-bs-parent="#accordionSolution16" aria-labelledby="headingSolution16">
 <div class="accordion-body">
 <p>There is no right or wrong, but here are some pointers:</p>
 <ul><li>Include more features. You can think of automated feature selection
@@ -1164,9 +1164,9 @@ model.</li>
 </div>
 </div>
 </div>
-<!-- 
+<!--
 Place links that you need to refer to multiple times across pages here. Delete
-any links that you are not going to use. 
+any links that you are not going to use.
  -->
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
@@ -1191,18 +1191,18 @@ any links that you are not going to use.
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
         <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
-        
+
         <a href="https://github.com/esciencecenter-digital-skills/fertility-prediction-assignment/edit/main/episodes/fertility-prediction.Rmd" class="external-link">Edit on GitHub</a>
-        
+
 	
         | <a href="https://github.com/esciencecenter-digital-skills/fertility-prediction-assignment/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/esciencecenter-digital-skills/fertility-prediction-assignment/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/esciencecenter-digital-skills/fertility-prediction-assignment/blob/main/CITATION.cff" class="external-link">Cite</a> | <a href="mailto:s.vanderburg@esciencecenter.nl">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
-        
+
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
-        
+
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
         <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.5" class="external-link">sandpaper (0.16.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.3" class="external-link">varnish (1.0.3)</a></p>
 			</div>
@@ -1227,7 +1227,7 @@ any links that you are not going to use.
   "identifier": "https://esciencecenter-digital-skills.github.io/fertility-prediction-assignment/instructor/fertility-prediction.html",
   "dateCreated": "2024-06-19",
   "dateModified": "2024-07-02",
-  "datePublished": "2024-07-02"
+  "datePublished": "2024-07-09"
 }
 
   </script><script>
